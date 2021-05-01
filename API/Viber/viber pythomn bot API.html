@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+  <meta content='#2f3241' name='theme-color' />
+  <link rel='shortcut icon' href='/images/favicon.ico'/>
+  <link rel='stylesheet' href='/css/index.css'>
+  <link rel="alternate" type="application/rss+xml" href="https://developers.viber.com/feed.xml" title="Viber Developers Hub">
+
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Viber Python Bot API | Viber Developers Hub</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Viber Python Bot API" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Viber lets everyone in the world connect. Freely. Millions of Viber users call, text, and send photos to each other, worldwide - for free." />
+<meta property="og:description" content="Viber lets everyone in the world connect. Freely. Millions of Viber users call, text, and send photos to each other, worldwide - for free." />
+<link rel="canonical" href="https://developers.viber.com/docs/api/python-bot-api/" />
+<meta property="og:url" content="https://developers.viber.com/docs/api/python-bot-api/" />
+<meta property="og:site_name" content="Viber Developers Hub" />
+<meta property="og:image" content="https://developers.viber.com/images/devlogo.png" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:width" content="1200" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://developers.viber.com/images/devlogo.png" />
+<meta property="twitter:title" content="Viber Python Bot API" />
+<meta name="twitter:site" content="@viber" />
+<script type="application/ld+json">
+{"description":"Viber lets everyone in the world connect. Freely. Millions of Viber users call, text, and send photos to each other, worldwide - for free.","image":{"width":1200,"height":630,"url":"https://developers.viber.com/images/devlogo.png","@type":"imageObject"},"url":"https://developers.viber.com/docs/api/python-bot-api/","@type":"WebPage","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://developers.viber.com/images/devlogo.png"}},"headline":"Viber Python Bot API","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <script src="/js/index.js"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-89879627-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+  <div class="container">
+
+    <a class="site-header-logo no-underline-hover" href="/">
+      <img src='/images/devlogo.png'/>
+    </a>
+
+    <nav class="site-header-nav">
+
+      <a class="site-header-nav-item active" href="/docs/">Docs</a>
+      <a class="site-header-nav-item " href="/releases/">Releases</a>
+      <a class="site-header-nav-item " href="/contact/">Contact</a>
+      <a class="site-header-nav-item" href="/search/" title="Site search"><span class="octicon octicon-search"></span></a>
+    </nav>
+  </div>
+</header>
+
+    <div class='subheader text-left'>
+  <div class='container-narrow'>
+    <h1><span class="mr-3 mr-lg-4">Viber API Documentation</span><span class="docs-version">7.3.0</span></h1>
+
+    <h4 class="docs-breadcrumbs">
+      <a href='/docs/'>Docs</a>
+
+      <span class="docs-breadcrumbs-divider">/</span>
+      <a href='/docs/api/'>API</a>
+
+
+
+      <span class="docs-breadcrumbs-divider">/</span>
+
+      Viber Python Bot API
+
+
+    </h4>
+  </div>
+</div>
+
+<!-- scrollnav.js embedding-->
+<style>
+.scroll-nav {
+  /*background-color: #f8f9fa;
+  border: 1px solid #a2a9b1;*/
+  padding: 15px 10px;
+  top: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 800px;
+}
+
+@media screen and (min-width: 1400px) {
+  .scroll-nav {
+  position: sticky;
+  float: left;
+  max-height: 100vh;
+  max-width: 17vw;
+  overflow-y: auto;
+  }
+
+}
+
+
+  @media screen and (min-width: 700px) {
+    float: left;
+    padding: 15px 10px;
+    width: 200px;
+
+    top: 60px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    width: 300px;
+  }
+}
+
+.scroll-nav__list {
+  margin: 0;
+  padding-left: 1.4em;
+  list-style-type: none;
+}
+
+
+.scroll-nav__item {
+  margin-bottom: 5px;
+  overflow-wrap: break-word;
+}
+
+.scroll-nav__item--active {
+  font-weight: 600;
+  position: relative;
+  overflow-wrap: break-word;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 14px;
+    background: black;
+    position: absolute;
+    left: -20px;
+    top: 2px;
+  }
+
+}
+
+.scroll-nav__link {
+  /*color: #0645ad;*/
+  text-decoration: none;
+  //display: block;
+  //margin: 0 auto;
+  //padding-left: 42px;
+}
+
+.post__article {
+  padding: 20px;
+
+  @media screen and (min-width: 700px) {
+    margin-left: 210px;
+    padding: 30px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    margin-left: 310px;
+  }
+}
+
+</style>
+
+<section class='page-section docs strong-headers'>
+  <div class="container-narrow">
+    <h1 id="viber-python-bot-api">Viber Python Bot API</h1>
+
+<p>Use this library to develop a bot for Viber platform.
+The library is available on <strong><a href="https://github.com/Viber/viber-bot-python">GitHub</a></strong> as well as a package on <a href="https://pypi.python.org/pypi/viberbot/">PyPI</a>.</p>
+
+<p>This package can be imported using pip by adding the following to your <code class="language-plaintext highlighter-rouge">requirements.txt</code>:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">viberbot</span><span class="o">==</span><span class="mf">1.0</span><span class="p">.</span><span class="mi">11</span></code></pre></figure>
+
+<p><strong>Important note for bot developers:</strong> Viber’s bot platform is open and free for developers to create bots in our ecosystem.
+Once you’ve created your bot you are welcome to share it with your Viber contacts or promote it outside Viber on your website or social media channels.
+Please note that Viber is not responsible for promoting your bot.</p>
+
+<h2 id="license">License</h2>
+
+<p>This library is released under the terms of the Apache 2.0 license. See <a href="https://github.com/Viber/viber-bot-python/blob/master/LICENSE.md">License</a> for more information.</p>
+
+<h2 id="library-prerequisites">Library Prerequisites</h2>
+
+<ol>
+  <li>python &gt;= 2.7.0</li>
+  <li>An Active Viber account on a platform which supports bots (iOS/Android). This account will automatically be set as the account administrator during the account creation process.</li>
+  <li>.Active bot - Create an account <a href="https://partners.viber.com/account/create-bot-account">here</a>.</li>
+  <li>Account authentication token - unique account identifier used to validate your account in all API requests. Once your account is created your authentication token will appear in the account’s “edit info” screen (for admins only). Each request posted to Viber by the account will need to contain the token.</li>
+  <li>Webhook - Please use a server endpoint URL that supports HTTPS. If you deploy on your own custom server, you’ll need a trusted (ca.pem) certificate, not self-signed. Read our <a href="https://developers.viber.com/blog/2017/05/24/test-your-bots-locally">blog post</a> on how to test your bot locally.</li>
+</ol>
+
+<h2 id="lets-get-started">Let’s get started!</h2>
+
+<h3 id="installing">Installing</h3>
+
+<p>Creating a basic Viber bot is simple:</p>
+
+<ol>
+  <li>Install the library with pip <code class="language-plaintext highlighter-rouge">pip install viberbot</code></li>
+  <li>Import <code class="language-plaintext highlighter-rouge">viberbot.api</code> library to your project</li>
+  <li>Create a bot and use the authentication token from <a href="https://partners.viber.com/account/create-bot-account">https://partners.viber.com/account/create-bot-account</a></li>
+  <li>Configure your bot as described in the documentation below</li>
+  <li>Start your web server</li>
+  <li>Call <code class="language-plaintext highlighter-rouge">set_webhook(url)</code> with your web server url</li>
+</ol>
+
+<h2 id="a-simple-echo-bot">A simple Echo Bot</h2>
+
+<h3 id="firstly-lets-import-and-configure-our-bot">Firstly, let’s import and configure our bot</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">viberbot</span> <span class="kn">import</span> <span class="n">Api</span>
+<span class="kn">from</span> <span class="nn">viberbot.api.bot_configuration</span> <span class="kn">import</span> <span class="n">BotConfiguration</span>
+
+<span class="n">bot_configuration</span> <span class="o">=</span> <span class="n">BotConfiguration</span><span class="p">(</span>
+	<span class="n">name</span><span class="o">=</span><span class="s">'PythonSampleBot'</span><span class="p">,</span>
+	<span class="n">avatar</span><span class="o">=</span><span class="s">'http://viber.com/avatar.jpg'</span><span class="p">,</span>
+	<span class="n">auth_token</span><span class="o">=</span><span class="s">'YOUR_AUTH_TOKEN_HERE'</span>
+<span class="p">)</span>
+<span class="n">viber</span> <span class="o">=</span> <span class="n">Api</span><span class="p">(</span><span class="n">bot_configuration</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="create-an-https-server">Create an HTTPS server</h3>
+
+<p>Next thing you should do is starting a https server.
+and yes, as we said in the prerequisites it has to be https server. Create a server however you like, for example with <code class="language-plaintext highlighter-rouge">Flask</code>:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">Response</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/incoming'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'POST'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">incoming</span><span class="p">():</span>
+	<span class="n">logger</span><span class="p">.</span><span class="n">debug</span><span class="p">(</span><span class="s">"received request. post data: {0}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">get_data</span><span class="p">()))</span>
+	<span class="c1"># handle the request here
+</span>	<span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+<span class="n">context</span> <span class="o">=</span> <span class="p">(</span><span class="s">'server.crt'</span><span class="p">,</span> <span class="s">'server.key'</span><span class="p">)</span>
+<span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">'0.0.0.0'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">443</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">ssl_context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="setting-a-webhook">Setting a webhook</h3>
+
+<p>After the server is up and running you can set a webhook.
+Viber will push messages sent to this URL. web server should be internet-facing.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">viber</span><span class="p">.</span><span class="n">set_webhook</span><span class="p">(</span><span class="s">'https://mybotwebserver.com:443/'</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="logging">Logging</h3>
+
+<p>This library uses the standard python logger. If you want to see its logs you can configure the logger:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">getLogger</span><span class="p">()</span>
+<span class="n">logger</span><span class="p">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="p">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="n">handler</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="p">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s">'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</span><span class="p">)</span>
+<span class="n">handler</span><span class="p">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+<span class="n">logger</span><span class="p">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="do-you-supply-a-basic-types-of-messages">Do you supply a basic types of messages?</h3>
+<p>Well, funny you ask. Yes we do. All the Message types are located in <code class="language-plaintext highlighter-rouge">viberbot.api.messages</code> package. Here’s some examples:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">viberbot.api.messages</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">TextMessage</span><span class="p">,</span>
+    <span class="n">ContactMessage</span><span class="p">,</span>
+    <span class="n">PictureMessage</span><span class="p">,</span>
+    <span class="n">VideoMessage</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">viberbot.api.messages.data_types.contact</span> <span class="kn">import</span> <span class="n">Contact</span>
+
+<span class="c1"># creation of text message
+</span><span class="n">text_message</span> <span class="o">=</span> <span class="n">TextMessage</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s">"sample text message!"</span><span class="p">)</span>
+
+<span class="c1"># creation of contact message
+</span><span class="n">contact</span> <span class="o">=</span> <span class="n">Contact</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"Viber user"</span><span class="p">,</span> <span class="n">phone_number</span><span class="o">=</span><span class="s">"0123456789"</span><span class="p">)</span>
+<span class="n">contact_message</span> <span class="o">=</span> <span class="n">ContactMessage</span><span class="p">(</span><span class="n">contact</span><span class="o">=</span><span class="n">contact</span><span class="p">)</span>
+
+<span class="c1"># creation of picture message
+</span><span class="n">picture_message</span> <span class="o">=</span> <span class="n">PictureMessage</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s">"Check this"</span><span class="p">,</span> <span class="n">media</span><span class="o">=</span><span class="s">"http://site.com/img.jpg"</span><span class="p">)</span>
+
+<span class="c1"># creation of video message
+</span><span class="n">video_message</span> <span class="o">=</span> <span class="n">VideoMessage</span><span class="p">(</span><span class="n">media</span><span class="o">=</span><span class="s">"http://mediaserver.com/video.mp4"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4324</span><span class="p">)</span></code></pre></figure>
+
+<p>Have you noticed how we created the <code class="language-plaintext highlighter-rouge">TextMessage</code>? There’s a all bunch of message types you should get familiar with.</p>
+
+<ul>
+  <li><a href="#TextMessage">Text Message</a></li>
+  <li><a href="#UrlMessage">Url Message</a></li>
+  <li><a href="#ContactMessage">Contact Message</a></li>
+  <li><a href="#PictureMessage">Picture Message</a></li>
+  <li><a href="#VideoMessage">Video Message</a></li>
+  <li><a href="#LocationMessage">Location Message</a></li>
+  <li><a href="#StickerMessage">Sticker Message</a></li>
+  <li><a href="#RichMediaMessage">Rich Media Message</a></li>
+  <li><a href="#KeyboardMessage">Keyboard Message</a></li>
+</ul>
+
+<p>Creating them is easy! Every message object has it’s own unique constructor corresponding to it’s API implementation, click on them to see it!
+Check out the full API documentation for more advanced uses.</p>
+
+<h3 id="lets-add-it-all-up-and-reply-with-a-message">Let’s add it all up and reply with a message!</h3>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">Response</span>
+<span class="kn">from</span> <span class="nn">viberbot</span> <span class="kn">import</span> <span class="n">Api</span>
+<span class="kn">from</span> <span class="nn">viberbot.api.bot_configuration</span> <span class="kn">import</span> <span class="n">BotConfiguration</span>
+<span class="kn">from</span> <span class="nn">viberbot.api.messages</span> <span class="kn">import</span> <span class="n">VideoMessage</span>
+<span class="kn">from</span> <span class="nn">viberbot.api.messages.text_message</span> <span class="kn">import</span> <span class="n">TextMessage</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">from</span> <span class="nn">viberbot.api.viber_requests</span> <span class="kn">import</span> <span class="n">ViberConversationStartedRequest</span>
+<span class="kn">from</span> <span class="nn">viberbot.api.viber_requests</span> <span class="kn">import</span> <span class="n">ViberFailedRequest</span>
+<span class="kn">from</span> <span class="nn">viberbot.api.viber_requests</span> <span class="kn">import</span> <span class="n">ViberMessageRequest</span>
+<span class="kn">from</span> <span class="nn">viberbot.api.viber_requests</span> <span class="kn">import</span> <span class="n">ViberSubscribedRequest</span>
+<span class="kn">from</span> <span class="nn">viberbot.api.viber_requests</span> <span class="kn">import</span> <span class="n">ViberUnsubscribedRequest</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">viber</span> <span class="o">=</span> <span class="n">Api</span><span class="p">(</span><span class="n">BotConfiguration</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s">'PythonSampleBot'</span><span class="p">,</span>
+    <span class="n">avatar</span><span class="o">=</span><span class="s">'http://site.com/avatar.jpg'</span><span class="p">,</span>
+    <span class="n">auth_token</span><span class="o">=</span><span class="s">'445da6az1s345z78-dazcczb2542zv51a-e0vc5fva17480im9'</span>
+<span class="p">))</span>
+
+
+<span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'POST'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">incoming</span><span class="p">():</span>
+    <span class="n">logger</span><span class="p">.</span><span class="n">debug</span><span class="p">(</span><span class="s">"received request. post data: {0}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">get_data</span><span class="p">()))</span>
+    <span class="c1"># every viber message is signed, you can verify the signature using this method
+</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">viber</span><span class="p">.</span><span class="n">verify_signature</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">get_data</span><span class="p">(),</span> <span class="n">request</span><span class="p">.</span><span class="n">headers</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'X-Viber-Content-Signature'</span><span class="p">)):</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">403</span><span class="p">)</span>
+
+    <span class="c1"># this library supplies a simple way to receive a request object
+</span>    <span class="n">viber_request</span> <span class="o">=</span> <span class="n">viber</span><span class="p">.</span><span class="n">parse_request</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">get_data</span><span class="p">())</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">viber_request</span><span class="p">,</span> <span class="n">ViberMessageRequest</span><span class="p">):</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">viber_request</span><span class="p">.</span><span class="n">message</span>
+        <span class="c1"># lets echo back
+</span>        <span class="n">viber</span><span class="p">.</span><span class="n">send_messages</span><span class="p">(</span><span class="n">viber_request</span><span class="p">.</span><span class="n">sender</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span> <span class="p">[</span>
+            <span class="n">message</span>
+        <span class="p">])</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">viber_request</span><span class="p">,</span> <span class="n">ViberSubscribedRequest</span><span class="p">):</span>
+        <span class="n">viber</span><span class="p">.</span><span class="n">send_messages</span><span class="p">(</span><span class="n">viber_request</span><span class="p">.</span><span class="n">get_user</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span> <span class="p">[</span>
+            <span class="n">TextMessage</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s">"thanks for subscribing!"</span><span class="p">)</span>
+        <span class="p">])</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">viber_request</span><span class="p">,</span> <span class="n">ViberFailedRequest</span><span class="p">):</span>
+        <span class="n">logger</span><span class="p">.</span><span class="n">warn</span><span class="p">(</span><span class="s">"client failed receiving message. failure: {0}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">viber_request</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="p">(</span><span class="s">'server.crt'</span><span class="p">,</span> <span class="s">'server.key'</span><span class="p">)</span>
+    <span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">'0.0.0.0'</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">443</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">ssl_context</span><span class="o">=</span><span class="n">context</span><span class="p">)</span></code></pre></figure>
+
+<p>As you can see there’s a bunch of <code class="language-plaintext highlighter-rouge">Request</code> types here’s a list of them.</p>
+
+<h2 id="viber-api">Viber API</h2>
+
+<h3 id="api-class">Api class</h3>
+
+<p><code class="language-plaintext highlighter-rouge">from viberbot import Api</code></p>
+
+<ul>
+  <li>Api
+    <ul>
+      <li><a href="#new-Api()">init(bot_configuration)</a></li>
+      <li><a href="#set_webhook">.set_webhook(url, webhook_events)</a> ⇒ <code class="language-plaintext highlighter-rouge">List of registered event_types</code></li>
+      <li><a href="#unset_webhook">.unset_webhook()</a> ⇒ <code class="language-plaintext highlighter-rouge">None</code></li>
+      <li><a href="#get_account_info">.get_account_info()</a> ⇒ <code class="language-plaintext highlighter-rouge">object</code></li>
+      <li><a href="#verify_signature">.verify_signature(request_data, signature)</a> ⇒ <code class="language-plaintext highlighter-rouge">boolean</code></li>
+      <li><a href="#parse_request">.parse_request(request_data)</a> ⇒ <code class="language-plaintext highlighter-rouge">ViberRequest</code></li>
+      <li><a href="#send_messages">.send_messages(to, messages)</a> ⇒ <code class="language-plaintext highlighter-rouge">list of message tokens sent</code></li>
+      <li><a href="#get_online">.get_online(viber_user_ids)</a> ⇒ <code class="language-plaintext highlighter-rouge">dictionary of users status</code></li>
+      <li><a href="#get_user_details">.get_user_details(viber_user_id)</a> ⇒ <code class="language-plaintext highlighter-rouge">dictionary of user's data</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p><a name="new-Api()"></a></p>
+
+<h3 id="new-api">New Api()</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bot_configuration</td>
+      <td><code class="language-plaintext highlighter-rouge">object</code></td>
+      <td><code class="language-plaintext highlighter-rouge">BotConfiguration</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a name="set_webhook"></a></p>
+
+<h3 id="apiset_webhookurl">Api.set_webhook(url)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>url</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Your web server url</td>
+    </tr>
+    <tr>
+      <td>webhook_events</td>
+      <td><code class="language-plaintext highlighter-rouge">list</code></td>
+      <td>optional list of subscribed events</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Returns <code class="language-plaintext highlighter-rouge">List of registered event_types</code>.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">event_types</span> <span class="o">=</span> <span class="n">viber</span><span class="p">.</span><span class="n">set_webhook</span><span class="p">(</span><span class="s">'https://example.com/incoming'</span><span class="p">)</span></code></pre></figure>
+
+<p><a name="unset_webhook"></a></p>
+
+<h3 id="apiunset_webhook">Api.unset_webhook()</h3>
+
+<p>Returns <code class="language-plaintext highlighter-rouge">None</code>.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">viber</span><span class="p">.</span><span class="n">unset_webhook</span><span class="p">()</span></code></pre></figure>
+
+<p><a name="get_account_info"></a></p>
+
+<h3 id="apiget_account_info">Api.get_account_info()</h3>
+
+<p>Returns an <code class="language-plaintext highlighter-rouge">object</code> <a href="https://developers.viber.com/docs/api/rest-bot-api/#get-account-info">with the following JSON</a>.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">account_info</span> <span class="o">=</span> <span class="n">viber</span><span class="p">.</span><span class="n">get_account_info</span><span class="p">()</span></code></pre></figure>
+
+<p><a name="verify_signature"></a></p>
+
+<h3 id="apiverify_signaturerequest_data-signature">Api.verify_signature(request_data, signature)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>request_data</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>the post data from request</td>
+    </tr>
+    <tr>
+      <td>signature</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>sent as header <code class="language-plaintext highlighter-rouge">X-Viber-Content-Signature</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Returns a <code class="language-plaintext highlighter-rouge">boolean</code> suggesting if the signature is valid.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">if</span> <span class="ow">not</span> <span class="n">viber</span><span class="p">.</span><span class="n">verify_signature</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">get_data</span><span class="p">(),</span> <span class="n">request</span><span class="p">.</span><span class="n">headers</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'X-Viber-Content-Signature'</span><span class="p">)):</span>
+	<span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">403</span><span class="p">)</span></code></pre></figure>
+
+<p><a name="parse_request"></a></p>
+
+<h3 id="apiparse_requestrequest_data">Api.parse_request(request_data)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>request_data</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>the post data from request</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Returns a <code class="language-plaintext highlighter-rouge">ViberRequest</code> object.</p>
+
+<p>There’s a list of <a href="#ViberRequest">ViberRequest objects</a></p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">viber_request</span> <span class="o">=</span> <span class="n">viber</span><span class="p">.</span><span class="n">parse_request</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">get_data</span><span class="p">())</span></code></pre></figure>
+
+<p><a name="send_messages"></a></p>
+
+<h3 id="apisend_messagesto-messages">Api.send_messages(to, messages)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>to</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Viber user id</td>
+    </tr>
+    <tr>
+      <td>messages</td>
+      <td><code class="language-plaintext highlighter-rouge">list</code></td>
+      <td>list of <code class="language-plaintext highlighter-rouge">Message</code> objects</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Returns <code class="language-plaintext highlighter-rouge">list</code> of message tokens of the messages sent.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">tokens</span> <span class="o">=</span> <span class="n">viber</span><span class="p">.</span><span class="n">send_messages</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="n">viber_request</span><span class="p">.</span><span class="n">get_sender</span><span class="p">().</span><span class="n">get_id</span><span class="p">(),</span>
+			     <span class="n">messages</span><span class="o">=</span><span class="p">[</span><span class="n">TextMessage</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s">"sample message"</span><span class="p">)])</span></code></pre></figure>
+
+<p><a name="get_online"></a></p>
+
+<h3 id="apiget_onlineviber_user_ids">Api.get_online(viber_user_ids)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>viber_user_ids</td>
+      <td><code class="language-plaintext highlighter-rouge">array of strings</code></td>
+      <td>Array of Viber user ids</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Returns a <code class="language-plaintext highlighter-rouge">dictionary of users</code>.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">users</span> <span class="o">=</span> <span class="n">Api</span><span class="p">.</span><span class="n">get_online</span><span class="p">([</span><span class="s">"user1id"</span><span class="p">,</span> <span class="s">"user2id"</span><span class="p">])</span></code></pre></figure>
+
+<p><a name="get_user_details"></a></p>
+
+<h3 id="apiget_user_detailsviber_user_id">Api.get_user_details(viber_user_id)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>viber_user_ids</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Viber user id</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The <code class="language-plaintext highlighter-rouge">get_user_details</code> function will fetch the details of a specific Viber user based on his unique user ID. The user ID can be obtained from the callbacks sent to the account regarding user’s actions. This request can be sent twice during a 12 hours period for each user ID.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">user_data</span> <span class="o">=</span> <span class="n">Api</span><span class="p">.</span><span class="n">get_user_details</span><span class="p">(</span><span class="s">"userId"</span><span class="p">)</span></code></pre></figure>
+
+<p><a name="ViberRequest"></a></p>
+
+<h3 id="request-object">Request object</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>event_type</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>according to <code class="language-plaintext highlighter-rouge">EventTypes</code> enum</td>
+    </tr>
+    <tr>
+      <td>timestamp</td>
+      <td><code class="language-plaintext highlighter-rouge">long</code></td>
+      <td>Epoch of request time</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>ViberRequest
+    <ul>
+      <li>.event_type ⇒ <code class="language-plaintext highlighter-rouge">string </code></li>
+      <li>.timestamp ⇒ <code class="language-plaintext highlighter-rouge">long</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p><a name="ConversationStarted"></a></p>
+
+<h4 id="viberconversationstartedrequest-object">ViberConversationStartedRequest object</h4>
+
+<p>Inherits from <a href="#ViberRequest">ViberRequest</a></p>
+
+<p>Conversation started event fires when a user opens a conversation with the bot using the “message” button (found on the bot’s info screen) or using a <a href="https://developers.viber.com/docs/tools/deep-links">deep link</a>.</p>
+
+<p>This event is <strong>not</strong> considered a subscribe event and doesn’t allow the account to send messages to the user; however, it will allow sending one “welcome message” to the user. See <a href="#SendingWelcomeMessage">sending a welcome message</a> below for more information.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>event_type</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>always equals to the value of <code class="language-plaintext highlighter-rouge">EventType.CONVERSATION_STARTED</code></td>
+    </tr>
+    <tr>
+      <td>message_token</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Unique ID of the message</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>The specific type of <code class="language-plaintext highlighter-rouge">conversation_started</code> event.</td>
+    </tr>
+    <tr>
+      <td>context</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Any additional parameters added to the deep link used to access the conversation passed as a string</td>
+    </tr>
+    <tr>
+      <td>user</td>
+      <td><code class="language-plaintext highlighter-rouge">UserProfile</code></td>
+      <td>the user started the conversation <a href="#UserProfile">UserProfile</a></td>
+    </tr>
+    <tr>
+      <td>subscribed</td>
+      <td><code class="language-plaintext highlighter-rouge">boolean</code></td>
+      <td>Indicates whether a user is already subscribed</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>ViberConversationStartedRequest
+    <ul>
+      <li>message_token ⇒ <code class="language-plaintext highlighter-rouge">string</code></li>
+      <li>type ⇒ <code class="language-plaintext highlighter-rouge">string</code></li>
+      <li>context ⇒ <code class="language-plaintext highlighter-rouge">string</code></li>
+      <li>user ⇒ <code class="language-plaintext highlighter-rouge">UserProfile</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="viberdeliveredrequest-object">ViberDeliveredRequest object</h4>
+
+<p>Inherits from <a href="#ViberRequest">ViberRequest</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>event_type</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>always equals to the value of <code class="language-plaintext highlighter-rouge">EventType.DELIVERED</code></td>
+    </tr>
+    <tr>
+      <td>message_token</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Unique ID of the message</td>
+    </tr>
+    <tr>
+      <td>user_id</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Unique Viber user id</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>ViberDeliveredRequest
+    <ul>
+      <li>message_token ⇒ <code class="language-plaintext highlighter-rouge">string</code></li>
+      <li>user_id ⇒ <code class="language-plaintext highlighter-rouge">string</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="viberfailedrequest-object">ViberFailedRequest object</h4>
+
+<p>Inherits from <a href="#ViberRequest">ViberRequest</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>event_type</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>always equals to the value of <code class="language-plaintext highlighter-rouge">EventType.FAILED</code></td>
+    </tr>
+    <tr>
+      <td>message_token</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Unique ID of the message</td>
+    </tr>
+    <tr>
+      <td>user_id</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Unique Viber user id</td>
+    </tr>
+    <tr>
+      <td>desc</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Failure description</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>ViberFailedRequest
+    <ul>
+      <li>message_token ⇒ <code class="language-plaintext highlighter-rouge">string</code></li>
+      <li>user_id ⇒ <code class="language-plaintext highlighter-rouge">string</code></li>
+      <li>desc ⇒ <code class="language-plaintext highlighter-rouge">string</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="vibermessagerequest-object">ViberMessageRequest object</h4>
+
+<p>Inherits from <a href="#ViberRequest">ViberRequest</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>event_type</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>always equals to the value of <code class="language-plaintext highlighter-rouge">EventType.MESSAGE</code></td>
+    </tr>
+    <tr>
+      <td>message_token</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Unique ID of the message</td>
+    </tr>
+    <tr>
+      <td>message</td>
+      <td><code class="language-plaintext highlighter-rouge">Message</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Message</code> object</td>
+    </tr>
+    <tr>
+      <td>sender</td>
+      <td><code class="language-plaintext highlighter-rouge">UserProfile</code></td>
+      <td>the user started the conversation <a href="#UserProfile">UserProfile</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>ViberMessageRequest
+    <ul>
+      <li>message_token ⇒ <code class="language-plaintext highlighter-rouge">string</code></li>
+      <li>message ⇒ <code class="language-plaintext highlighter-rouge">Message</code></li>
+      <li>sender ⇒ <code class="language-plaintext highlighter-rouge">UserProfile</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="viberseenrequest-object">ViberSeenRequest object</h4>
+
+<p>Inherits from <a href="#ViberRequest">ViberRequest</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>event_type</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>always equals to the value of <code class="language-plaintext highlighter-rouge">EventType.SEEN</code></td>
+    </tr>
+    <tr>
+      <td>message_token</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Unique ID of the message</td>
+    </tr>
+    <tr>
+      <td>user_id</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Unique Viber user id</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>ViberSeenRequest
+    <ul>
+      <li>message_token ⇒ <code class="language-plaintext highlighter-rouge">string</code></li>
+      <li>user_id ⇒ <code class="language-plaintext highlighter-rouge">string</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="vibersubscribedrequest-object">ViberSubscribedRequest object</h4>
+
+<p>Inherits from <a href="#ViberRequest">ViberRequest</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>event_type</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>always equals to the value of <code class="language-plaintext highlighter-rouge">EventType.SUBSCRIBED</code></td>
+    </tr>
+    <tr>
+      <td>user</td>
+      <td><code class="language-plaintext highlighter-rouge">UserProfile</code></td>
+      <td>the user started the conversation <a href="#UserProfile">UserProfile</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>ViberSubscribedRequest
+    <ul>
+      <li>user ⇒ <code class="language-plaintext highlighter-rouge">UserProfile</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="viberunsubscribedrequest-object">ViberUnsubscribedRequest object</h4>
+
+<p>Inherits from <a href="#ViberRequest">ViberRequest</a></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>event_type</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>always equals to the value of <code class="language-plaintext highlighter-rouge">EventType.UNSUBSCRIBED</code></td>
+    </tr>
+    <tr>
+      <td>user_id</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Unique Viber user id</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>ViberUnsubscribedRequest
+    <ul>
+      <li>get_user_id() ⇒ <code class="language-plaintext highlighter-rouge">string</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p><a name="UserProfile"></a></p>
+
+<h3 id="userprofile-object">UserProfile object</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>avatar</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>Avatar URL</td>
+    </tr>
+    <tr>
+      <td>country</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td><strong>currently set in <code class="language-plaintext highlighter-rouge">CONVERSATION_STARTED</code> event only</strong></td>
+    </tr>
+    <tr>
+      <td>language</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td><strong>currently set in <code class="language-plaintext highlighter-rouge">CONVERSATION_STARTED</code> event only</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a name="MessageObject"></a></p>
+
+<h3 id="message-object">Message Object</h3>
+
+<p><strong>Common Members for <code class="language-plaintext highlighter-rouge">Message</code> interface</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>timestamp</td>
+      <td><code class="language-plaintext highlighter-rouge">long</code></td>
+      <td>Epoch time</td>
+    </tr>
+    <tr>
+      <td>keyboard</td>
+      <td><code class="language-plaintext highlighter-rouge">JSON</code></td>
+      <td>keyboard JSON</td>
+    </tr>
+    <tr>
+      <td>trackingData</td>
+      <td><code class="language-plaintext highlighter-rouge">JSON</code></td>
+      <td>JSON Tracking Data from Viber Client</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Common Constructor Arguments <code class="language-plaintext highlighter-rouge">Message</code> interface</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>optionalKeyboard</td>
+      <td><code class="language-plaintext highlighter-rouge">JSON</code></td>
+      <td><a href="https://developers.viber.com/docs/tools/keyboards">Writing Custom Keyboards</a></td>
+    </tr>
+    <tr>
+      <td>optionalTrackingData</td>
+      <td><code class="language-plaintext highlighter-rouge">JSON</code></td>
+      <td>Data to be saved on Viber Client device, and sent back each time message is received</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a name="TextMessage"></a></p>
+
+<h4 id="textmessage-object">TextMessage object</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Member</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>text</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">message</span> <span class="o">=</span> <span class="n">TextMessage</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s">"my text message"</span><span class="p">)</span></code></pre></figure>
+
+<p><a name="UrlMessage"></a></p>
+
+<h4 id="urlmessage-object">URLMessage object</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Member</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>media</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>URL string</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">message</span> <span class="o">=</span> <span class="n">URLMessage</span><span class="p">(</span><span class="n">media</span><span class="o">=</span><span class="s">"http://my.siteurl.com"</span><span class="p">);</span></code></pre></figure>
+
+<p><a name="ContactMessage"></a></p>
+
+<h4 id="contactmessage-object">ContactMessage object</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Member</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>contact</td>
+      <td><code class="language-plaintext highlighter-rouge">Contact</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">viberbot.api.messages.data_types.contact</span> <span class="kn">import</span> <span class="n">Contact</span>
+
+<span class="n">contact</span> <span class="o">=</span> <span class="n">Contact</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"Viber user"</span><span class="p">,</span> <span class="n">phone_number</span><span class="o">=</span><span class="s">"+0015648979"</span><span class="p">,</span> <span class="n">avatar</span><span class="o">=</span><span class="s">"http://link.to.avatar"</span><span class="p">)</span>
+<span class="n">contact_message</span> <span class="o">=</span> <span class="n">ContactMessage</span><span class="p">(</span><span class="n">contact</span><span class="o">=</span><span class="n">contact</span><span class="p">)</span></code></pre></figure>
+
+<p><a name="PictureMessage"></a></p>
+
+<h4 id="picturemessage-object">PictureMessage object</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Member</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>media</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>url of the message (jpeg only)</td>
+    </tr>
+    <tr>
+      <td>text</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>thumbnail</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">message</span> <span class="o">=</span> <span class="n">PictureMessage</span><span class="p">(</span><span class="n">media</span><span class="o">=</span><span class="s">"http://www.thehindubusinessline.com/multimedia/dynamic/01458/viber_logo_JPG_1458024f.jpg"</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s">"Viber logo"</span><span class="p">)</span></code></pre></figure>
+
+<p><a name="VideoMessage"></a></p>
+
+<h4 id="videomessage-object">VideoMessage object</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Member</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>media</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td>url of the video</td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td><code class="language-plaintext highlighter-rouge">int</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>thumbnail</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>duration</td>
+      <td><code class="language-plaintext highlighter-rouge">int</code></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">message</span> <span class="o">=</span> <span class="n">VideoMessage</span><span class="p">(</span><span class="n">media</span><span class="o">=</span><span class="s">"http://site.com/video.mp4"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">21499</span><span class="p">)</span></code></pre></figure>
+
+<p><a name="LocationMessage"></a></p>
+
+<h4 id="locationmessage-object">LocationMessage object</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Member</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>location</td>
+      <td><code class="language-plaintext highlighter-rouge">Location</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">viberbot.api.messages.data_types.location</span> <span class="kn">import</span> <span class="n">Location</span>
+
+<span class="n">location</span> <span class="o">=</span> <span class="n">Location</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="n">location_message</span> <span class="o">=</span> <span class="n">LocationMessage</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="n">location</span><span class="p">)</span></code></pre></figure>
+
+<p><a name="StickerMessage"></a></p>
+
+<h4 id="stickermessage-object">StickerMessage object</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Member</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>sticker_id</td>
+      <td><code class="language-plaintext highlighter-rouge">int</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">message</span> <span class="o">=</span> <span class="n">StickerMessage</span><span class="p">(</span><span class="n">sticker_id</span><span class="o">=</span><span class="mi">40100</span><span class="p">);</span></code></pre></figure>
+
+<p><a name="FileMessage"></a></p>
+
+<h4 id="filemessage-object">FileMessage object</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Member</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>media</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td><code class="language-plaintext highlighter-rouge">long</code></td>
+    </tr>
+    <tr>
+      <td>file_name</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">message</span> <span class="o">=</span> <span class="n">FileMessage</span><span class="p">(</span><span class="n">media</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">sizeInBytes</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="n">file_name</span><span class="p">)</span></code></pre></figure>
+
+<p><a name="RichMediaMessage"></a></p>
+
+<h4 id="richmediamessage-object">RichMediaMessage object</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Member</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>rich_media</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> (JSON)</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">SAMPLE_RICH_MEDIA</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"BgColor"</span><span class="p">:</span> <span class="s">"#69C48A"</span><span class="p">,</span>
+  <span class="s">"Buttons"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s">"Columns"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+      <span class="s">"Rows"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s">"BgColor"</span><span class="p">:</span> <span class="s">"#454545"</span><span class="p">,</span>
+      <span class="s">"BgMediaType"</span><span class="p">:</span> <span class="s">"gif"</span><span class="p">,</span>
+      <span class="s">"BgMedia"</span><span class="p">:</span> <span class="s">"http://www.url.by/test.gif"</span><span class="p">,</span>
+      <span class="s">"BgLoop"</span><span class="p">:</span> <span class="s">"true"</span><span class="p">,</span>
+      <span class="s">"ActionType"</span><span class="p">:</span> <span class="s">"open-url"</span><span class="p">,</span>
+      <span class="s">"Silent"</span><span class="p">:</span> <span class="s">"true"</span><span class="p">,</span>
+      <span class="s">"ActionBody"</span><span class="p">:</span> <span class="s">"www.tut.by"</span><span class="p">,</span>
+      <span class="s">"Image"</span><span class="p">:</span> <span class="s">"www.tut.by/img.jpg"</span><span class="p">,</span>
+      <span class="s">"TextVAlign"</span><span class="p">:</span> <span class="s">"middle"</span><span class="p">,</span>
+      <span class="s">"TextHAlign"</span><span class="p">:</span> <span class="s">"left"</span><span class="p">,</span>
+      <span class="s">"Text"</span><span class="p">:</span> <span class="s">"&lt;b&gt;example&lt;/b&gt; button"</span><span class="p">,</span>
+      <span class="s">"TextOpacity"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="s">"TextSize"</span><span class="p">:</span> <span class="s">"regular"</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">SAMPLE_ALT_TEXT</span> <span class="o">=</span> <span class="s">"upgrade now!"</span>
+
+<span class="n">message</span> <span class="o">=</span> <span class="n">RichMediaMessage</span><span class="p">(</span><span class="n">rich_media</span><span class="o">=</span><span class="n">SAMPLE_RICH_MEDIA</span><span class="p">,</span> <span class="n">alt_text</span><span class="o">=</span><span class="n">SAMPLE_ALT_TEXT</span><span class="p">);</span></code></pre></figure>
+
+<p><a name="KeyboardMessage"></a></p>
+
+<h4 id="keyboardmessage-object">KeyboardMessage object</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Member</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>keyboard</td>
+      <td><code class="language-plaintext highlighter-rouge">JSON</code></td>
+    </tr>
+    <tr>
+      <td>tracking_data</td>
+      <td><code class="language-plaintext highlighter-rouge">JSON</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">SAMPLE_KEYBOARD</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s">"Type"</span><span class="p">:</span> <span class="s">"keyboard"</span><span class="p">,</span>
+<span class="s">"Buttons"</span><span class="p">:</span> <span class="p">[</span>
+	<span class="p">{</span>
+	<span class="s">"Columns"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+	<span class="s">"Rows"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+	<span class="s">"BgColor"</span><span class="p">:</span> <span class="s">"#e6f5ff"</span><span class="p">,</span>
+	<span class="s">"BgMedia"</span><span class="p">:</span> <span class="s">"http://link.to.button.image"</span><span class="p">,</span>
+	<span class="s">"BgMediaType"</span><span class="p">:</span> <span class="s">"picture"</span><span class="p">,</span>
+	<span class="s">"BgLoop"</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+	<span class="s">"ActionType"</span><span class="p">:</span> <span class="s">"reply"</span><span class="p">,</span>
+	<span class="s">"ActionBody"</span><span class="p">:</span> <span class="s">"This will be sent to your bot in a callback"</span><span class="p">,</span>
+	<span class="s">"ReplyType"</span><span class="p">:</span> <span class="s">"message"</span><span class="p">,</span>
+	<span class="s">"Text"</span><span class="p">:</span> <span class="s">"Push me!"</span>
+	<span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">message</span> <span class="o">=</span> <span class="n">KeyboardMessage</span><span class="p">(</span><span class="n">tracking_data</span><span class="o">=</span><span class="s">'tracking_data'</span><span class="p">,</span> <span class="n">keyboard</span><span class="o">=</span><span class="n">SAMPLE_KEYBOARD</span><span class="p">)</span></code></pre></figure>
+
+<p><a name="SendingWelcomeMessage"></a></p>
+
+<h3 id="sending-a-welcome-message">Sending a welcome message</h3>
+
+<p>The Viber API allows sending messages to users only after they subscribe to the account. However, Viber will allow the account to send one “welcome message” to a user as the user opens the conversation, before the user subscribes.</p>
+
+<p>The welcome message will be sent as a response to a <code class="language-plaintext highlighter-rouge">conversation_started</code> callback, which will be received from Viber once the user opens the conversation with the account. To learn more about this event and when is it triggered see <a href="#ConversationStarted"><code class="language-plaintext highlighter-rouge">Conversation started</code></a> in the callbacks section.</p>
+
+<h4 id="welcome-message-flow">Welcome message flow</h4>
+
+<p>Sending a welcome message will be done according to the following flow:</p>
+
+<ol>
+  <li>User opens 1-on-1 conversation with account.</li>
+  <li>Viber server send <code class="language-plaintext highlighter-rouge">conversation_started</code> even to PA’s webhook.</li>
+  <li>The account receives the <code class="language-plaintext highlighter-rouge">conversation_started</code> and responds with an HTTP response which includes the welcome message as the response body.</li>
+</ol>
+
+<p>The welcome message will be a JSON constructed according to the send_message requests structure, but without the <code class="language-plaintext highlighter-rouge">receiver</code> parameter. An example welcome message would look like this:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">@</span><span class="n">app</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'POST'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">incoming</span><span class="p">():</span>
+	<span class="n">viber_request</span> <span class="o">=</span> <span class="n">viber</span><span class="p">.</span><span class="n">parse_request</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">get_data</span><span class="p">())</span>
+
+	<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">viber_request</span><span class="p">,</span> <span class="n">ViberConversationStartedRequest</span><span class="p">)</span> <span class="p">:</span>
+		<span class="n">viber</span><span class="p">.</span><span class="n">send_messages</span><span class="p">(</span><span class="n">viber_request</span><span class="p">.</span><span class="n">get_user</span><span class="p">().</span><span class="n">get_id</span><span class="p">(),</span> <span class="p">[</span>
+			<span class="n">TextMessage</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s">"Welcome!"</span><span class="p">)</span>
+		<span class="p">])</span>
+
+	<span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span></code></pre></figure>
+
+<h2 id="community">Community</h2>
+
+<p>Join the conversation on <strong><a href="https://gitter.im/viber/bot-python">Gitter</a></strong>.</p>
+
+    <script src="/js/scrollnav.min.umd.js"></script>
+<script>
+const content = document.querySelector('.page-section .container-narrow');
+
+scrollnav.init(content, {
+  debug: false,
+  subSections:'h3'
+});
+</script>
+  </div>
+</section>
+
+
+    <footer id="footer" class="footer">
+  <div id="mc_embed_signup" class="container-narrow text-center">
+    <form action="//viber.us14.list-manage.com/subscribe/post?u=b5b41d562cbdd6f2d8d5f07e8&amp;id=ca0dedc6fb" method="post" id="mc-embedded-subscribe-form"
+      name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+        <h2 class="col-sm-12">Subscribe to our mailing list</h2>
+        <div class="col-sm-9">
+          <div class="mc-field-group">
+            <input type="email" placeholder="email@address.com" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+            <div id="mce-responses">
+              <h5 class="response" id="mce-error-response" style="display:none"></h5>
+              <h5 class="response" id="mce-success-response" style="display:none"></h5>
+            </div>
+          </div>
+          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        </div>
+        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_b5b41d562cbdd6f2d8d5f07e8_ca0dedc6fb" tabindex="-1" value=""></div>
+        <div class="col-sm-3"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" disabled class="button"></div>
+
+        <h6 class="col-sm-12 terms">By clicking "Subscribe" you agree to allow Viber to send you emails. You will be able to unsubscribe at any time by clicking Unsubscribe in the email messages.
+        </h6>
+      </div>
+    </form>
+  </div>
+
+  <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js' />
+  <script type='text/javascript'>
+    (function ($) {
+      window.fnames = new Array();
+      window.ftypes = new Array();
+      fnames[0] = 'EMAIL';
+      ftypes[0] = 'email';
+      fnames[1] = 'FNAME';
+      ftypes[1] = 'text';
+      fnames[2] = 'LNAME';
+      ftypes[2] = 'text';
+    }(jQuery));
+    var $mcj = jQuery.noConflict(true);
+  </script>
+  <script type='text/javascript'>
+      jQuery(document).ready(function ($) {
+        $('#mce-EMAIL').focus(function () {
+          $('#mc-embedded-subscribe').removeAttr('disabled');
+        });
+      });
+  </script>
+
+  <div class="container-narrow text-center mt-4">
+    <nav>
+      <a class="footer-nav-item" href="/">Home</a>
+      <a class="footer-nav-item" href="/docs/">Docs</a>
+      <a class="footer-nav-item" href="/releases/">Releases</a>
+      <a class="footer-nav-item" href="/contact/">Contact</a>
+      <a class="footer-nav-item" href="//www.viber.com/en/about" target="_blank">About</a>
+      <a class="footer-nav-item" href="//www.viber.com/en/terms" target="_blank">Terms &amp; Policies</a>
+    </nav>
+
+    <div class="text-center">
+      <span class="copyright">© 2018 Viber Media S.à r.l.</span>
+      <span class="footer-love pl-4">
+        <a href='https://viber.com' target="_blank" class="no-underline"><span class='octicon octicon-code'></span> with <span class='octicon octicon-heart'></span> by Viber</span></a>
+      </span>
+    </div>
+  </div>
+
+</footer>
+<script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+
+    <script>
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<span class='octicon octicon-link'></span>";
+    anchor.title = "Permalink";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingElement) {
+    var headers = containingElement.getElementsByTagName("h" + level);
+    for (var h = 0; h < headers.length; h++) {
+      var header = headers[h];
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+    }
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete") {
+      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
+      if (!contentBlock) {
+        return;
+      }
+      for (var level = 1; level <= 6; level++) {
+        linkifyAnchors(level, contentBlock);
+      }
+    }
+  };
+</script>
+
+  </body>
+
+</html>

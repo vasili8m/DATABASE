@@ -1,7 +1,7 @@
 # <a name="**Микрозаймы**"></a>
 
 
-1. [Creditter](https://bit-ly.ru/FJCOx)
+1. [Creditter](https://bit-ly.ru/FJCOx)-
 <p align="center">
   <img src="https://tlgur.com/d/8DmXKeOG" />
 </p>
