@@ -18,7 +18,7 @@
 
 # **Дебетовые карты**
 
-- []()
+- [Home Credit](https://bit-ly.ru/dozIy) - Карта ПОЛЬЗА с кешбеком и невероятным процентом на остаток!
 - []()
 - []()
 - []()
@@ -33,6 +33,9 @@
 # **Микрозаймы**
 
 - [Микроклад](https://bit-ly.ru/L6ezp) - Онлайн-займы от 1000 до 30000р
+<p align="center">
+  <img src="./static/maigret.png" />
+</p>
 - [Creditter](https://bit-ly.ru/FJCOx)
 - [Займер]()
 - [Platisa]()
@@ -41,8 +44,11 @@
 - [Е-капуста]()
 - [One Click Money]()
 - [Pay PS]()
-- [Миг Кредит]()
-- []()
+- [Миг Кредит](https://bit-ly.ru/DYoRb)
+<p align="center">
+  <img src="https://tlgur.com/d/8loO1E64" />
+</p>
+- [E-zaem](https://www.zaymer.ru)
 - []()
 - []()
 - []()
