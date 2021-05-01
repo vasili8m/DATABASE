@@ -1,0 +1,2707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+  <meta content='#2f3241' name='theme-color' />
+  <link rel='shortcut icon' href='/images/favicon.ico'/>
+  <link rel='stylesheet' href='/css/index.css'>
+  <link rel="alternate" type="application/rss+xml" href="https://developers.viber.com/feed.xml" title="Viber Developers Hub">
+
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Viber REST API | Viber Developers Hub</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Viber REST API" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Viber lets everyone in the world connect. Freely. Millions of Viber users call, text, and send photos to each other, worldwide - for free." />
+<meta property="og:description" content="Viber lets everyone in the world connect. Freely. Millions of Viber users call, text, and send photos to each other, worldwide - for free." />
+<link rel="canonical" href="https://developers.viber.com/docs/api/rest-bot-api/" />
+<meta property="og:url" content="https://developers.viber.com/docs/api/rest-bot-api/" />
+<meta property="og:site_name" content="Viber Developers Hub" />
+<meta property="og:image" content="https://developers.viber.com/images/devlogo.png" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:width" content="1200" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://developers.viber.com/images/devlogo.png" />
+<meta property="twitter:title" content="Viber REST API" />
+<meta name="twitter:site" content="@viber" />
+<script type="application/ld+json">
+{"description":"Viber lets everyone in the world connect. Freely. Millions of Viber users call, text, and send photos to each other, worldwide - for free.","image":{"width":1200,"height":630,"url":"https://developers.viber.com/images/devlogo.png","@type":"imageObject"},"url":"https://developers.viber.com/docs/api/rest-bot-api/","@type":"WebPage","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://developers.viber.com/images/devlogo.png"}},"headline":"Viber REST API","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <script src="/js/index.js"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-89879627-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+  <div class="container">
+
+    <a class="site-header-logo no-underline-hover" href="/">
+      <img src='/images/devlogo.png'/>
+    </a>
+
+    <nav class="site-header-nav">
+
+      <a class="site-header-nav-item active" href="/docs/">Docs</a>
+      <a class="site-header-nav-item " href="/releases/">Releases</a>
+      <a class="site-header-nav-item " href="/contact/">Contact</a>
+      <a class="site-header-nav-item" href="/search/" title="Site search"><span class="octicon octicon-search"></span></a>
+    </nav>
+  </div>
+</header>
+
+    <div class='subheader text-left'>
+  <div class='container-narrow'>
+    <h1><span class="mr-3 mr-lg-4">Viber API Documentation</span><span class="docs-version">7.3.0</span></h1>
+
+    <h4 class="docs-breadcrumbs">
+      <a href='/docs/'>Docs</a>
+
+      <span class="docs-breadcrumbs-divider">/</span>
+      <a href='/docs/api/'>API</a>
+
+
+
+      <span class="docs-breadcrumbs-divider">/</span>
+
+      Viber REST API
+
+
+    </h4>
+  </div>
+</div>
+
+<!-- scrollnav.js embedding-->
+<style>
+.scroll-nav {
+  /*background-color: #f8f9fa;
+  border: 1px solid #a2a9b1;*/
+  padding: 15px 10px;
+  top: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 800px;
+}
+
+@media screen and (min-width: 1400px) {
+  .scroll-nav {
+  position: sticky;
+  float: left;
+  max-height: 100vh;
+  max-width: 17vw;
+  overflow-y: auto;
+  }
+
+}
+
+
+  @media screen and (min-width: 700px) {
+    float: left;
+    padding: 15px 10px;
+    width: 200px;
+
+    top: 60px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    width: 300px;
+  }
+}
+
+.scroll-nav__list {
+  margin: 0;
+  padding-left: 1.4em;
+  list-style-type: none;
+}
+
+
+.scroll-nav__item {
+  margin-bottom: 5px;
+  overflow-wrap: break-word;
+}
+
+.scroll-nav__item--active {
+  font-weight: 600;
+  position: relative;
+  overflow-wrap: break-word;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 14px;
+    background: black;
+    position: absolute;
+    left: -20px;
+    top: 2px;
+  }
+
+}
+
+.scroll-nav__link {
+  /*color: #0645ad;*/
+  text-decoration: none;
+  //display: block;
+  //margin: 0 auto;
+  //padding-left: 42px;
+}
+
+.post__article {
+  padding: 20px;
+
+  @media screen and (min-width: 700px) {
+    margin-left: 210px;
+    padding: 30px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    margin-left: 310px;
+  }
+}
+
+</style>
+
+<section class='page-section docs strong-headers'>
+  <div class="container-narrow">
+    <h1 id="viber-rest-api">Viber REST API</h1>
+
+<h2 id="get-started">Get Started</h2>
+
+<p>In order to implement the API you will need the following:</p>
+
+<ol>
+  <li><strong>An Active Viber account</strong> on a platform which supports bots (iOS/Android). This account will automatically be set as the account administrator during the account creation process.</li>
+  <li><strong>Active bot</strong> - Create a bot <a href="https://partners.viber.com/account/create-bot-account">here</a>.</li>
+  <li><strong>Account authentication token</strong> - unique account identifier used to validate your account in all API requests. Once your account is created your authentication token will appear in the account’s “edit info” screen (for admins only). Each request posted to Viber by the account will need to contain the token.</li>
+  <li><strong>Setup account webhook</strong> – this needs to be done once during the account setup process to define your webhook and the type of responses you would like to receive.
+In order to implement the API you will need the following:</li>
+</ol>
+
+<p><strong>Supported platforms</strong></p>
+
+<p>Bots are currently supported on iOS and Android devices running Viber version 6.5 and above and on desktop from version 6.5.3.</p>
+
+<p><strong>Important notes for bot developers:</strong></p>
+<ol>
+  <li>Viber’s bot platform is open and free for developers to create bots in our ecosystem.
+Once you’ve created your bot you are welcome to share it with your Viber contacts or promote it outside Viber on your website or social media channels using a deeplink. Please note that Viber is not responsible for promoting your bot, and that by default <strong>your bot will not have an active landing page under viber.com</strong> after creation. Enabling this URL is part of the paid services we offer to official partners. Likewise, after creating your bot it will not appear in search results in Viber, and enabling this also part of the paid services we offer to official partners.
+If you’re interested in discussing a partnership agreement or know more about the paid channels to promote your bot on Viber, please email devsupport@viber.com and include your company details, including your company’s country.</li>
+  <li>We recommend that you record the subscriber ID of each subscriber, as there’s no API for fetching all subscriber IDs for your bot. You can find the subscriber ID in the sender.id property of the <a href="http://developers.viber.com/docs/api/rest-bot-api/#receive-message-from-user">Message</a> callback, or the user.id property of the <a href="http://developers.viber.com/docs/api/rest-bot-api/#subscribed">Subscribed</a> callback. You can see whether a user is subscribed in the <code class="language-plaintext highlighter-rouge">subscribed</code> parameter of the <a href="http://developers.viber.com/docs/api/rest-bot-api/#conversation-started">conversation_started</a> callback.
+<strong>Note that users’ first message to the bot will make them subscribed, but will not result in a Subscribed callback.</strong></li>
+  <li>If you wish to message users based on their phone number and using an API, we offer a service called Business Messages that supports this.
+Application to use this service is done via one of our <a href="https://www.forbusiness.viber.com/en/messaging-partners/">official partners</a>.
+You can see which partners cover your geographical area in their description in the link above. Our partners will be able to provide you with further details about the service, such as pricing.</li>
+</ol>
+
+<p><strong>Send and receive message flow</strong></p>
+
+<p>The following diagram describes the flow of sending and receiving messages by the account. All API requests and callbacks mentioned in the diagram will be explained later in this document.</p>
+
+<p><img src="/docs/img/send_and_receive_message_flow.png" alt="" /></p>
+
+<p><a name="authenticationToken"></a></p>
+
+<h2 id="authentication-token">Authentication token</h2>
+<p>The authentication token (also known as application key) is a unique and secret account identifier. It is used to authenticate request in the Viber API and to prevent unauthorized persons from sending requests on behalf of a bot. Each API request must include an HTTP Header called <code class="language-plaintext highlighter-rouge">X-Viber-Auth-Token</code> containing the account’s authentication token.</p>
+
+<p><strong>HTTP header</strong></p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">X-Viber-Auth-Token: 445da6az1s345z78-dazcczb2542zv51a-e0vc5fva17480im9</code></pre></figure>
+
+<p>The authentication token is generated upon bot creation and can be viewed by the account’s admins in the “edit info” screen of their bot or on the Viber Admin Panel.</p>
+
+<p><img src="/docs/img/authToken.jpg" alt="" /></p>
+
+<p><strong>Note:</strong> Failing to send the authentication token in the header will result in an error with the <strong><code class="language-plaintext highlighter-rouge">missing_auth_token</code></strong> message.</p>
+
+<p><a name="webhooks"></a></p>
+
+<h2 id="webhooks">Webhooks</h2>
+
+<p>Once you have your token you will be able to set your account’s webhook. This webhook will be used for receiving callbacks and user messages from Viber.</p>
+
+<p>Setting the webhook will be done by calling the <code class="language-plaintext highlighter-rouge">set_webhook</code> API with a valid &amp; certified URL. This action defines the account’s webhook and the type of events the account wants to be notified about.</p>
+
+<p>For security reasons only URLs with valid and official SSL certificate from a trusted CA will be allowed. The certificate CA should be on the Sun Java trusted root certificates list.</p>
+
+<p>Once a <code class="language-plaintext highlighter-rouge">set_webhook</code> request is sent Viber will send a callback to the webhook to check its availability and return a response to the user. The check succeeds if the Viber server receives HTTP status 200 in response to the callback, but fails if it recieves any other status. If your set_webhook response doesn’t have <code class="language-plaintext highlighter-rouge">"status":0</code>, please verify that all requests to your webhook URL receive HTTP status 200 in response.</p>
+
+<p>Note that once you set your webhook the 1-on-1 conversation with your account will become available. To disable 1-on-1 conversation with your account you’ll need to remove your webhook – see <a href="#removingWebhook">removing your webhook</a> below.</p>
+
+<p>Viber’s API allows you to receive user names and photos. This has been updated to comply with privacy laws and allow developers who don’t make use of user names and photos as part of their service to opt out. If you don’t use user names photos, please opt-out to default values.</p>
+
+<p>To set the request, pass <code class="language-plaintext highlighter-rouge">send_name</code> and <code class="language-plaintext highlighter-rouge">send_photo</code> flags with the <code class="language-plaintext highlighter-rouge">set_webhook</code> request.</p>
+
+<p><strong>Note:</strong>  This feature will work if the user has allowed  “Content Personalisation” (More → Privacy → personal data). If the user has disallowed content personalization, you will receive placeholder values.</p>
+
+<p><a name="settingWebhook"></a></p>
+
+<h3 id="setting-a-webhook">Setting a Webhook</h3>
+
+<h4 id="resource-url">Resource URL</h4>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">https://chatapi.viber.com/pa/set_webhook</code></pre></figure>
+
+<h4 id="post-data">Post data</h4>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"url"</span><span class="p">:</span><span class="s2">"https://my.host.com"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"event_types"</span><span class="p">:[</span><span class="w">
+      </span><span class="s2">"delivered"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"seen"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"failed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subscribed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"unsubscribed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"conversation_started"</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nl">"send_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"send_photo"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Post parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>url</td>
+      <td>required. Account webhook URL to receive callbacks &amp; messages from users</td>
+      <td>Webhook URL must use SSL Note: Viber doesn’t support self signed certificates</td>
+    </tr>
+    <tr>
+      <td>event_types</td>
+      <td>optional. Indicates the types of Viber events that the account owner would like to be notified about. <strong>Don’t include this parameter in your request to get all events</strong></td>
+      <td>Possible values: <code class="language-plaintext highlighter-rouge">delivered</code>, <code class="language-plaintext highlighter-rouge">seen</code>, <code class="language-plaintext highlighter-rouge">failed</code>, <code class="language-plaintext highlighter-rouge">subscribed</code>, <code class="language-plaintext highlighter-rouge">unsubscribed </code> and <code class="language-plaintext highlighter-rouge">conversation_started</code></td>
+    </tr>
+    <tr>
+      <td>send_name</td>
+      <td>optional. Indicates whether or not the bot should receive the user name. Default <code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>Possible values: <code class="language-plaintext highlighter-rouge">true</code>, <code class="language-plaintext highlighter-rouge">false</code></td>
+    </tr>
+    <tr>
+      <td>send_photo</td>
+      <td>optional. Indicates whether or not the bot should receive the user photo. Default <code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>Possible values: <code class="language-plaintext highlighter-rouge">true</code>, <code class="language-plaintext highlighter-rouge">false</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="set-webhook-response">Set webhook Response</h4>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"status"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"status_message"</span><span class="p">:</span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"event_types"</span><span class="p">:[</span><span class="w">
+      </span><span class="s2">"delivered"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"seen"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"failed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subscribed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"unsubscribed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"conversation_started"</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Response parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Possible values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>status</td>
+      <td>Action result</td>
+      <td><code class="language-plaintext highlighter-rouge">0</code> for success. In case of failure – appropriate failure status number. See <a href="#errorCodes">error codes</a> table for additional information</td>
+    </tr>
+    <tr>
+      <td>status_message</td>
+      <td><code class="language-plaintext highlighter-rouge">ok</code> or failure reason</td>
+      <td>Success: <code class="language-plaintext highlighter-rouge">ok</code>. Failure: <code class="language-plaintext highlighter-rouge">invalidUrl</code>, <code class="language-plaintext highlighter-rouge">invalidAuthToken</code>, <code class="language-plaintext highlighter-rouge">badData</code>, <code class="language-plaintext highlighter-rouge">missingData</code> and <code class="language-plaintext highlighter-rouge">failure</code>. See <a href="#errorCodes">error codes</a> table for additional information</td>
+    </tr>
+    <tr>
+      <td>event_types</td>
+      <td>List of event types you will receive a callback for. Should return the same values sent in the request</td>
+      <td><code class="language-plaintext highlighter-rouge">delivered</code>, <code class="language-plaintext highlighter-rouge">seen</code>, <code class="language-plaintext highlighter-rouge">failed</code>, <code class="language-plaintext highlighter-rouge">subscribed</code>, <code class="language-plaintext highlighter-rouge">unsubscribed </code> and <code class="language-plaintext highlighter-rouge">conversation_started</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="event-types-filtering">Event types filtering</h4>
+
+<p>The <code class="language-plaintext highlighter-rouge">event_types</code> parameter allows accounts to choose which events they would get a callback for.  <br />
+The following events are mandatory and can’t be filtered out: <code class="language-plaintext highlighter-rouge">message</code>, <code class="language-plaintext highlighter-rouge">subscribed</code> and <code class="language-plaintext highlighter-rouge">unsubscribed</code>.<br />
+The following events can be filtered out during the <code class="language-plaintext highlighter-rouge">set_webhook</code> request: <code class="language-plaintext highlighter-rouge">delivered</code>, <code class="language-plaintext highlighter-rouge">seen</code>, <code class="language-plaintext highlighter-rouge">failed</code> and <code class="language-plaintext highlighter-rouge">conversation_started</code>.<br />
+Sending a <code class="language-plaintext highlighter-rouge">set_webhook</code> request with no event_types parameter means getting <strong>all</strong> events. <br />
+Sending a <code class="language-plaintext highlighter-rouge">set_webhook</code> request with empty <code class="language-plaintext highlighter-rouge">event_types</code> list <code class="language-plaintext highlighter-rouge">("event_types": [])</code> means getting <strong>only mandatory</strong> events. See <a href="#callbacks">callbacks</a> section for full callbacks events information.</p>
+
+<h4 id="set-webhook-callback">Set webhook callback</h4>
+
+<p>For each <code class="language-plaintext highlighter-rouge">set_webhook</code> request Viber will send a callback to the webhook URL to confirm it is available. The expected HTTP response to the callback is <code class="language-plaintext highlighter-rouge">200</code> OK – any other response will mean the webhook is not available. If the webhook is not available the <code class="language-plaintext highlighter-rouge">set_webhook</code> response sent to the user will be status 1: invalidUrl.</p>
+
+<h5 id="callback-data">Callback data</h5>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"event"</span><span class="p">:</span><span class="s2">"webhook"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="mi">1457764197627</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"message_token"</span><span class="p">:</span><span class="mi">241256543215</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Callback parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Possible values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>event</td>
+      <td>Callback type – which event triggered the callback</td>
+      <td>webhook</td>
+    </tr>
+    <tr>
+      <td>timestamp</td>
+      <td>Time of the event that triggered the callback</td>
+      <td>Epoch time</td>
+    </tr>
+    <tr>
+      <td>message_token</td>
+      <td>Unique ID of the message</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a name="removingWebhook"></a></p>
+
+<h3 id="removing-your-webhook">Removing your webhook</h3>
+
+<p>Once you set a webhook to your bot your 1-on-1 conversation button will appear and users will be able to access it.   <br />
+At the moment there is no option to disable the 1-on-1 conversation from the bot settings, so to disable this option you’ll need to remove the webhook you set for the account. Removing the webhook is done by Posting a <code class="language-plaintext highlighter-rouge">set_webhook</code> request with an empty webhook string.</p>
+
+<h4 id="resource-url-1">Resource URL</h4>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">https://chatapi.viber.com/pa/set_webhook</code></pre></figure>
+
+<h4 id="post-data-1">Post data</h4>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"url"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Post parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>url</td>
+      <td>required. Account webhook URL to receive callbacks &amp; messages from users. In this case, use an empty string to remove any previously set webhook</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a name="sendMessage"></a></p>
+
+<h2 id="send-message">Send Message</h2>
+<p>The <code class="language-plaintext highlighter-rouge">send_message</code> API allows accounts to send messages to Viber users who subscribe to the account. Sending a message to a user will be possible only after the user has subscribed to the bot. (see <code class="language-plaintext highlighter-rouge">subscribed</code> <a href="#subscribedCallback">callback</a> for additional information). You can share your bot with the users via a <a href="https://developers.viber.com/docs/tools/deep-links/">deeplink</a>.</p>
+
+<p>The API supports a variety of message types: <code class="language-plaintext highlighter-rouge">text</code>, <code class="language-plaintext highlighter-rouge">picture</code>, <code class="language-plaintext highlighter-rouge">video</code>, <code class="language-plaintext highlighter-rouge">file</code>, <code class="language-plaintext highlighter-rouge">location</code>, <code class="language-plaintext highlighter-rouge">sticker</code>, <code class="language-plaintext highlighter-rouge">contact</code>, <code class="language-plaintext highlighter-rouge">carousel content</code> and <code class="language-plaintext highlighter-rouge">URL</code>. Specific post data examples and required parameters for each message type are given below.</p>
+
+<p><strong>Validation</strong></p>
+
+<p>Maximum total JSON size of the request is 30kb.</p>
+
+<p>Can send up to 100 messages to a user in an hour (XX:00-XX:00) without reply, message count towards the limit is reset when a user replies to a message. Once the limit is reached, you will receive an error callback saying:</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="nl">"status"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="nl">"status_message"</span><span class="p">:</span><span class="s2">"maximum messages from Public Account to Viber user without reply exceeded."</span><span class="p">,</span><span class="nl">"message_token"</span><span class="p">:</span><span class="err">XXXXXXXXXXXXXXXXXXX</span><span class="p">,</span><span class="nl">"chat_hostname"</span><span class="p">:</span><span class="s2">"SN-CHAT-0x_"</span><span class="p">}</span></code></pre></figure>
+
+<h3 id="resource-url-2">Resource URL</h3>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">https://chatapi.viber.com/pa/send_message</code></pre></figure>
+
+<h3 id="general-send-message-parameters">General send message parameters</h3>
+
+<p>The following parameters are available for all message types:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>receiver</td>
+      <td>Unique Viber user id</td>
+      <td>required, subscribed valid user id</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>Message type</td>
+      <td>required. Available message types: <code class="language-plaintext highlighter-rouge">text</code>, <code class="language-plaintext highlighter-rouge">picture</code>, <code class="language-plaintext highlighter-rouge">video</code>, <code class="language-plaintext highlighter-rouge">file</code>, <code class="language-plaintext highlighter-rouge">location</code>, <code class="language-plaintext highlighter-rouge">contact</code>, <code class="language-plaintext highlighter-rouge">sticker</code>, <code class="language-plaintext highlighter-rouge">carousel content</code> and <code class="language-plaintext highlighter-rouge">url</code></td>
+    </tr>
+    <tr>
+      <td>sender.name</td>
+      <td>The sender’s name to display</td>
+      <td>required. Max 28 characters</td>
+    </tr>
+    <tr>
+      <td>sender.avatar</td>
+      <td>The sender’s avatar URL</td>
+      <td>optional. Avatar size should be no more than 100 kb. Recommended 720x720</td>
+    </tr>
+    <tr>
+      <td>tracking_data</td>
+      <td>Allow the account to track messages and user’s replies. Sent <code class="language-plaintext highlighter-rouge">tracking_data</code> value will be passed back with user’s reply</td>
+      <td>optional. max 4000 characters</td>
+    </tr>
+    <tr>
+      <td>min_api_version</td>
+      <td>Minimal API version required by clients for this message (default 1)</td>
+      <td>optional. client version support the API version. Certain features may not work as expected if set to a number that’s below their requirements.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="message-types">Message types</h3>
+<p>Below is a list of all supported message types with post data examples.</p>
+
+<h4 id="text-message">Text message</h4>
+
+<h5 id="post-data-2">Post data</h5>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"receiver"</span><span class="p">:</span><span class="s2">"01234567890A="</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"min_api_version"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"sender"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"John McClane"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"avatar"</span><span class="p">:</span><span class="s2">"http://avatar.example.com"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"tracking_data"</span><span class="p">:</span><span class="s2">"tracking data"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"text"</span><span class="p">:</span><span class="s2">"Hello world!"</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Post parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>type</td>
+      <td>Message type</td>
+      <td>required. <code class="language-plaintext highlighter-rouge">text</code>. Supports <a href="https://developers.viber.com/docs/tools/text-formatting">text formatting</a></td>
+    </tr>
+    <tr>
+      <td>text</td>
+      <td>The text of the message</td>
+      <td>required. Max length 7,000 characters</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="picture-message">Picture message</h4>
+
+<h5 id="post-data-3">Post data</h5>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"receiver"</span><span class="p">:</span><span class="s2">"01234567890A="</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"min_api_version"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"sender"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"John McClane"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"avatar"</span><span class="p">:</span><span class="s2">"http://avatar.example.com"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"tracking_data"</span><span class="p">:</span><span class="s2">"tracking data"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"picture"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"text"</span><span class="p">:</span><span class="s2">"Photo description"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"media"</span><span class="p">:</span><span class="s2">"http://www.images.com/img.jpg"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"thumbnail"</span><span class="p">:</span><span class="s2">"http://www.images.com/thumb.jpg"</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Post parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>type</td>
+      <td>Message type</td>
+      <td>required. <code class="language-plaintext highlighter-rouge">picture</code></td>
+    </tr>
+    <tr>
+      <td>text</td>
+      <td>Description of the photo. Can be an empty string if irrelevant</td>
+      <td>required. Max 512 characters</td>
+    </tr>
+    <tr>
+      <td>media</td>
+      <td>URL of the image (JPEG, PNG, non-animated GIF)</td>
+      <td>required. The URL must have a resource with a <code class="language-plaintext highlighter-rouge">.jpeg</code>, <code class="language-plaintext highlighter-rouge">.png</code> or <code class="language-plaintext highlighter-rouge">.gif</code> file extension as the last path segment. Example: <code class="language-plaintext highlighter-rouge">http://www.example.com/path/image.jpeg</code>. Animated GIFs can be sent as URL messages or file messages. Max image size: 1MB on iOS, 3MB on Android.</td>
+    </tr>
+    <tr>
+      <td>thumbnail</td>
+      <td>URL of a reduced size image (JPEG, PNG, GIF)</td>
+      <td>optional. Recommended: 400x400. Max size: 100kb.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="video-message">Video message</h4>
+
+<h5 id="post-data-4">Post data</h5>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"receiver"</span><span class="p">:</span><span class="s2">"01234567890A="</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"min_api_version"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"sender"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"John McClane"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"avatar"</span><span class="p">:</span><span class="s2">"http://avatar.example.com"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"tracking_data"</span><span class="p">:</span><span class="s2">"tracking data"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"video"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"media"</span><span class="p">:</span><span class="s2">"http://www.images.com/video.mp4"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"thumbnail"</span><span class="p">:</span><span class="s2">"http://www.images.com/thumb.jpg"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"size"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"duration"</span><span class="p">:</span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Post parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>type</td>
+      <td>Message type</td>
+      <td>required. <code class="language-plaintext highlighter-rouge">video</code></td>
+    </tr>
+    <tr>
+      <td>media</td>
+      <td>URL of the video (MP4, H264)</td>
+      <td>required. Max size 26 MB. Only MP4 and H264 are supported. The URL must have a resource with a <code class="language-plaintext highlighter-rouge">.mp4</code> file extension as the last path segment. Example: <code class="language-plaintext highlighter-rouge">http://www.example.com/path/video.mp4</code></td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td>Size of the video in bytes</td>
+      <td>required</td>
+    </tr>
+    <tr>
+      <td>duration</td>
+      <td>Video duration in seconds; will be displayed to the receiver</td>
+      <td>optional. Max 180 seconds</td>
+    </tr>
+    <tr>
+      <td>thumbnail</td>
+      <td>URL of a reduced size image (JPEG)</td>
+      <td>optional. Max size 100 kb. Recommended: 400x400. Only JPEG format is supported</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="file-message">File message</h4>
+
+<h5 id="post-data-5">Post data</h5>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"receiver"</span><span class="p">:</span><span class="s2">"01234567890A="</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"min_api_version"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"sender"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"John McClane"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"avatar"</span><span class="p">:</span><span class="s2">"http://avatar.example.com"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"tracking_data"</span><span class="p">:</span><span class="s2">"tracking data"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"file"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"media"</span><span class="p">:</span><span class="s2">"http://www.images.com/file.doc"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"size"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"file_name"</span><span class="p">:</span><span class="s2">"name_of_file.doc"</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Post parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>type</td>
+      <td>Message type</td>
+      <td>required. <code class="language-plaintext highlighter-rouge">file</code></td>
+    </tr>
+    <tr>
+      <td>media</td>
+      <td>URL of the file</td>
+      <td>required. Max size 50 MB. See <a href="#forbiddenFileFormats">forbidden file formats</a> for unsupported file types</td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td>Size of the file in bytes</td>
+      <td>required</td>
+    </tr>
+    <tr>
+      <td>file_name</td>
+      <td>Name of the file</td>
+      <td>required. File name should include extension. Max 256 characters (including file extension). Sending a file without extension or with the wrong extension might cause the client to be unable to open the file</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="contact-message">Contact message</h4>
+
+<h5 id="post-data-6">Post data</h5>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"receiver"</span><span class="p">:</span><span class="s2">"01234567890A="</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"min_api_version"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"sender"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"John McClane"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"avatar"</span><span class="p">:</span><span class="s2">"http://avatar.example.com"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"tracking_data"</span><span class="p">:</span><span class="s2">"tracking data"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"contact"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"contact"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Itamar"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="s2">"+972511123123"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Post parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>type</td>
+      <td>Message type</td>
+      <td>required. <code class="language-plaintext highlighter-rouge">contact </code></td>
+    </tr>
+    <tr>
+      <td>contact.name</td>
+      <td>Name of the contact</td>
+      <td>required. Max 28 characters</td>
+    </tr>
+    <tr>
+      <td>contact.phone_number</td>
+      <td>Phone number of the contact</td>
+      <td>required. Max 18 characters</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="location-message">Location message</h4>
+
+<h5 id="post-data-7">Post data</h5>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"receiver"</span><span class="p">:</span><span class="s2">"01234567890A="</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"min_api_version"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"sender"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"John McClane"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"avatar"</span><span class="p">:</span><span class="s2">"http://avatar.example.com"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"tracking_data"</span><span class="p">:</span><span class="s2">"tracking data"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"location"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"location"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"lat"</span><span class="p">:</span><span class="s2">"37.7898"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"lon"</span><span class="p">:</span><span class="s2">"-122.3942"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Post parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>type</td>
+      <td>Message type</td>
+      <td>required. <code class="language-plaintext highlighter-rouge">location </code></td>
+    </tr>
+    <tr>
+      <td>location</td>
+      <td>Location coordinates</td>
+      <td>required. latitude (±90°) &amp; longitude (±180°) within valid ranges</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="url-message">URL message</h4>
+
+<h5 id="post-data-8">Post data</h5>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"receiver"</span><span class="p">:</span><span class="s2">"01234567890A="</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"min_api_version"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"sender"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"John McClane"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"avatar"</span><span class="p">:</span><span class="s2">"http://avatar.example.com"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"tracking_data"</span><span class="p">:</span><span class="s2">"tracking data"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"url"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"media"</span><span class="p">:</span><span class="s2">"http://www.website.com/go_here"</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Post parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>type</td>
+      <td>Message type</td>
+      <td>required. <code class="language-plaintext highlighter-rouge">url </code></td>
+    </tr>
+    <tr>
+      <td>media</td>
+      <td>URL</td>
+      <td>required. Max 2,000 characters</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="sticker-message">Sticker message</h4>
+
+<h5 id="post-data-9">Post data</h5>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"receiver"</span><span class="p">:</span><span class="s2">"01234567890A="</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"min_api_version"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"sender"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"John McClane"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"avatar"</span><span class="p">:</span><span class="s2">"http://avatar.example.com"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"tracking_data"</span><span class="p">:</span><span class="s2">"tracking data"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"sticker"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"sticker_id"</span><span class="p">:</span><span class="mi">46105</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Post parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>type</td>
+      <td>Message type</td>
+      <td>required. <code class="language-plaintext highlighter-rouge">sticker </code></td>
+    </tr>
+    <tr>
+      <td>sticker_id</td>
+      <td>Unique Viber sticker ID. For examples visit the <a href="https://developers.viber.com/docs/tools/sticker-ids">sticker IDs</a> page</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="rich-media-message--carousel-content-message">Rich Media message / Carousel content message</h4>
+<p>The Rich Media message type allows sending messages with pre-defined layout, including height (rows number), width (columns number), text, images and buttons.</p>
+
+<p>Below you will find an exmaple of a Carousel Content Message, that allows a user to scroll through a list of items, each composed of an image, description and call to action button.</p>
+
+<p><img src="/docs/img/rest_rich_messages.jpg" alt="" /></p>
+
+<p>Each item on the list shown to the user is a button in the Rich Media message’s “Buttons” array. Sending one button is also permitted.</p>
+
+<p>The parameters for Rich Media message and its buttons are also used for Keyboards. You can find additional information on them in <a href="/docs/tools/keyboards">the following article</a>.</p>
+
+<p><strong>Notes:</strong></p>
+<ol>
+  <li>Carousel Content Message is supported on devices running Viber version 6.7 and above.</li>
+  <li>Each button is limited to a maximum of 7 rows.</li>
+  <li>Forwarding is not supported for Rich Media messages.</li>
+</ol>
+
+<h5 id="post-data-10">Post data</h5>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"receiver"</span><span class="p">:</span><span class="s2">"nsId6t9MWy3mq09RAeXiug=="</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"rich_media"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"min_api_version"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"rich_media"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"rich_media"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ButtonsGroupColumns"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ButtonsGroupRows"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"BgColor"</span><span class="p">:</span><span class="s2">"#FFFFFF"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Buttons"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Columns"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rows"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ActionType"</span><span class="p">:</span><span class="s2">"open-url"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ActionBody"</span><span class="p">:</span><span class="s2">"https://www.google.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Image"</span><span class="p">:</span><span class="s2">"http://html-test:8080/myweb/guy/assets/imageRMsmall2.png"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Columns"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rows"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Text"</span><span class="p">:</span><span class="s2">"&lt;font color=#323232&gt;&lt;b&gt;Headphones with Microphone, On-ear Wired earphones&lt;/b&gt;&lt;/font&gt;&lt;font color=#777777&gt;&lt;br&gt;Sound Intone &lt;/font&gt;&lt;font color=#6fc133&gt;$17.99&lt;/font&gt;"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ActionType"</span><span class="p">:</span><span class="s2">"open-url"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ActionBody"</span><span class="p">:</span><span class="s2">"https://www.google.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TextSize"</span><span class="p">:</span><span class="s2">"medium"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TextVAlign"</span><span class="p">:</span><span class="s2">"middle"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TextHAlign"</span><span class="p">:</span><span class="s2">"left"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Columns"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rows"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ActionType"</span><span class="p">:</span><span class="s2">"reply"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ActionBody"</span><span class="p">:</span><span class="s2">"https://www.google.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Text"</span><span class="p">:</span><span class="s2">"&lt;font color=#ffffff&gt;Buy&lt;/font&gt;"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TextSize"</span><span class="p">:</span><span class="s2">"large"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TextVAlign"</span><span class="p">:</span><span class="s2">"middle"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TextHAlign"</span><span class="p">:</span><span class="s2">"middle"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Image"</span><span class="p">:</span><span class="s2">"https://s14.postimg.org/4mmt4rw1t/Button.png"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Columns"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rows"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ActionType"</span><span class="p">:</span><span class="s2">"reply"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ActionBody"</span><span class="p">:</span><span class="s2">"https://www.google.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Text"</span><span class="p">:</span><span class="s2">"&lt;font color=#8367db&gt;MORE DETAILS&lt;/font&gt;"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TextSize"</span><span class="p">:</span><span class="s2">"small"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TextVAlign"</span><span class="p">:</span><span class="s2">"middle"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TextHAlign"</span><span class="p">:</span><span class="s2">"middle"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Columns"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rows"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ActionType"</span><span class="p">:</span><span class="s2">"open-url"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ActionBody"</span><span class="p">:</span><span class="s2">"https://www.google.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Image"</span><span class="p">:</span><span class="s2">"https://s16.postimg.org/wi8jx20wl/image_RMsmall2.png"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Columns"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rows"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Text"</span><span class="p">:</span><span class="s2">"&lt;font color=#323232&gt;&lt;b&gt;Hanes Men's Humor Graphic T-Shirt&lt;/b&gt;&lt;/font&gt;&lt;font color=#777777&gt;&lt;br&gt;Hanes&lt;/font&gt;&lt;font color=#6fc133&gt;$10.99&lt;/font&gt;"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ActionType"</span><span class="p">:</span><span class="s2">"open-url"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ActionBody"</span><span class="p">:</span><span class="s2">"https://www.google.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TextSize"</span><span class="p">:</span><span class="s2">"medium"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TextVAlign"</span><span class="p">:</span><span class="s2">"middle"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TextHAlign"</span><span class="p">:</span><span class="s2">"left"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Columns"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rows"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ActionType"</span><span class="p">:</span><span class="s2">"reply"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ActionBody"</span><span class="p">:</span><span class="s2">"https://www.google.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Text"</span><span class="p">:</span><span class="s2">"&lt;font color=#ffffff&gt;Buy&lt;/font&gt;"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TextSize"</span><span class="p">:</span><span class="s2">"large"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TextVAlign"</span><span class="p">:</span><span class="s2">"middle"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TextHAlign"</span><span class="p">:</span><span class="s2">"middle"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Image"</span><span class="p">:</span><span class="s2">"https://s14.postimg.org/4mmt4rw1t/Button.png"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Columns"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Rows"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ActionType"</span><span class="p">:</span><span class="s2">"reply"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ActionBody"</span><span class="p">:</span><span class="s2">"https://www.google.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Text"</span><span class="p">:</span><span class="s2">"&lt;font color=#8367db&gt;MORE DETAILS&lt;/font&gt;"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TextSize"</span><span class="p">:</span><span class="s2">"small"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TextVAlign"</span><span class="p">:</span><span class="s2">"middle"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TextHAlign"</span><span class="p">:</span><span class="s2">"middle"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Post parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Possible values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>alt_text</td>
+      <td>Backward compatibility text, limited to 7,000 characters</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>rich_media.ButtonsGroupColumns</td>
+      <td>Number of columns per carousel content block. Default 6 columns</td>
+      <td>1 - 6</td>
+    </tr>
+    <tr>
+      <td>rich_media.ButtonsGroupRows</td>
+      <td>Number of rows per carousel content block. Default 7 rows</td>
+      <td>1 - 7</td>
+    </tr>
+    <tr>
+      <td>rich_media.Buttons</td>
+      <td>Array of buttons</td>
+      <td>Max of 6 * ButtonsGroupColumns * ButtonsGroupRows</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Button element</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Possible values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Columns</td>
+      <td>Button column span. Default ButtonsGroupColumns</td>
+      <td>1..ButtonsGroupColumns</td>
+    </tr>
+    <tr>
+      <td>Rows</td>
+      <td>Button row span. Default ButtonsGroupRows</td>
+      <td>1..ButtonsGroupRows</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a name="keyboards"></a></p>
+
+<h2 id="keyboards">Keyboards</h2>
+
+<p>The Viber API allows sending a custom keyboard using the <code class="language-plaintext highlighter-rouge">send_message</code> API, to supply the user with a set of predefined replies or actions. The keyboard can be attached to any message type or sent on it’s on. Once received, the keyboard will appear to the user instead of the device’s native keyboard. The keyboards are fully customizable and can be created and designed specifically for the account’s needs. The client will always display the last keyboard that was sent to it.</p>
+
+<p>Read <a href="/docs/tools/keyboards">the following article</a> to learn more about keyboards.</p>
+
+<p><strong>Validation</strong></p>
+
+<p>Maximum total JSON size of the request is 30kb.</p>
+
+<h3 id="resource-url-3">Resource URL</h3>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">https://chatapi.viber.com/pa/send_message</code></pre></figure>
+
+<h3 id="post-data-11">Post data</h3>
+
+<p>Keyboards can be attached to any message type and be sent and displayed together. To attach a keyboard to a message simply add the keyboard’s parameters to the message JSON.<br />
+The example below shows a keyboard sent with a text message (note that the keyboard doesn’t contain all optional values).</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"receiver"</span><span class="p">:</span><span class="s2">"01234567890A="</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"min_api_version"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"text"</span><span class="p">:</span><span class="s2">"Hello world"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"keyboard"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"keyboard"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DefaultHeight"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Buttons"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"ActionType"</span><span class="p">:</span><span class="s2">"reply"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ActionBody"</span><span class="p">:</span><span class="s2">"reply to me"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Text"</span><span class="p">:</span><span class="s2">"Key text"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"TextSize"</span><span class="p">:</span><span class="s2">"regular"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><a name="broadcast"></a></p>
+
+<h2 id="broadcast-message">Broadcast Message</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">broadcast_message</code> API allows accounts to send messages to multiple Viber users who subscribe to the account. Sending a message to a user will be possible only after the user has subscribed to the bot by sending a message to the bot.</p>
+
+<p>The API supports a variety of message types: <code class="language-plaintext highlighter-rouge">text</code>, <code class="language-plaintext highlighter-rouge">picture</code>, <code class="language-plaintext highlighter-rouge">video</code>, <code class="language-plaintext highlighter-rouge">file</code>, <code class="language-plaintext highlighter-rouge">location</code>, <code class="language-plaintext highlighter-rouge">sticker</code>, <code class="language-plaintext highlighter-rouge">contact</code>, <code class="language-plaintext highlighter-rouge">carousel content</code> and <code class="language-plaintext highlighter-rouge">URL</code>.</p>
+
+<p><strong>Validation</strong></p>
+
+<p>Maximum total JSON size of the request is 30kb. The maximum list length is <strong>300</strong> receivers.
+The Broadcast API is used to send messages to multiple recipients with a rate limit of 500 requests in a 10 seconds window.</p>
+
+<h3 id="resource-url-4">Resource URL</h3>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">https://chatapi.viber.com/pa/broadcast_message</code></pre></figure>
+
+<h3 id="post-parameters">Post parameters</h3>
+
+<p>This API method uses the same parameters as the <a href="#send-message"><code class="language-plaintext highlighter-rouge">send</code> REST API method</a> with a few variations described below.</p>
+
+<h4 id="broadcast_list">broadcast_list</h4>
+
+<p>This mandatory parameter defines the recipients for the message. Every user must be subscribed and have a valid user id. The maximum list length is 300 receivers. For example (this should be a part of the full JSON body):</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"broadcast_list"</span><span class="p">:[</span><span class="w">
+      </span><span class="s2">"ABB102akPCRKFaqxWnafEIA=="</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ABB102akPCRKFaqxWna111=="</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ABB102akPCRKFaqxWnaf222=="</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<h4 id="place-holders">Place holders</h4>
+
+<p>Broadcast message can contain place holders that will be replaced with receiver information (each receiver will get it’s own information). The place holders can appear anywhere in the message, even in tracking data. The list of the place holders:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">replace_me_with_receiver_id</code> - will be replaced by the receiver ID</li>
+  <li><code class="language-plaintext highlighter-rouge">replace_me_with_url_encoded_receiver_id</code> - will be replaced by the URL encoded receiver ID</li>
+  <li><code class="language-plaintext highlighter-rouge">replace_me_with_user_name</code> - will be replaced by the receiver user name</li>
+</ul>
+
+<h3 id="post-example">Post example</h3>
+
+<p>The following example demonstrates send <a href="#carousel-content-message">carousel content</a> with place holders (<code class="language-plaintext highlighter-rouge">replace_me_with_receiver_id</code>, <code class="language-plaintext highlighter-rouge">replace_me_with_url_encoded_receiver_id</code>, <code class="language-plaintext highlighter-rouge">replace_me_with_user_name</code>) to 4 receivers:</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"sender"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"John McClane"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"avatar"</span><span class="p">:</span><span class="s2">"http://avatar.example.com"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"min_api_version"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"rich_media"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"broadcast_list"</span><span class="p">:[</span><span class="w">
+      </span><span class="s2">"pttm25kSGUo1919sBORWyA=="</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"2yBSIsbzs7sSrh4oLm2hdQ=="</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"EGAZ3SZRi6zW1D0uNYhQHg=="</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"kBQYX9LrGyF5mm8JTxdmpw=="</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nl">"rich_media"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"rich_media"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"BgColor"</span><span class="p">:</span><span class="s2">"#FFFFFF"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Buttons"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"ActionBody"</span><span class="p">:</span><span class="s2">"https://www.google.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ActionType"</span><span class="p">:</span><span class="s2">"open-url"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Text"</span><span class="p">:</span><span class="s2">"Should get back my ID instead of replace_me_with_receiver_id"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"ActionBody"</span><span class="p">:</span><span class="s2">"https://www.google.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ActionType"</span><span class="p">:</span><span class="s2">"open-url"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Text"</span><span class="p">:</span><span class="s2">"Should get back my URL encoded ID instead of replace_me_with_url_encoded_receiver_id"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"ActionBody"</span><span class="p">:</span><span class="s2">"https://www.google.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ActionType"</span><span class="p">:</span><span class="s2">"open-url"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Text"</span><span class="p">:</span><span class="s2">"Should get back my name instead of replace_me_with_user_name"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<h3 id="response">Response</h3>
+
+<p><strong>Response parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Possible values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>message_token</td>
+      <td>Unique ID of the message</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>Action result</td>
+      <td><code class="language-plaintext highlighter-rouge">0</code> for success. In case of failure – appropriate failure status number. See <a href="#errorCodes">error codes</a> table for additional information</td>
+    </tr>
+    <tr>
+      <td>status_message</td>
+      <td><code class="language-plaintext highlighter-rouge">ok</code> or failure reason</td>
+      <td>Success: <code class="language-plaintext highlighter-rouge">ok</code>. Failure: <code class="language-plaintext highlighter-rouge">invalidUrl</code>, <code class="language-plaintext highlighter-rouge">invalidAuthToken</code>, <code class="language-plaintext highlighter-rouge">badData</code>, <code class="language-plaintext highlighter-rouge">missingData</code> and <code class="language-plaintext highlighter-rouge">failure</code>. See <a href="#errorCodes">error codes</a> table for additional information</td>
+    </tr>
+    <tr>
+      <td>failed_list</td>
+      <td>Contains all the receivers to which the message could not be sent properly</td>
+      <td>See <a href="#errorCodes">error codes</a> table for additional information</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Response example</strong></p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"message_token"</span><span class="p">:</span><span class="mi">40808912438712</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"status"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"status_message"</span><span class="p">:</span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"failed_list"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"receiver"</span><span class="p">:</span><span class="s2">"pttm25kSGUo1919sBORWyA=="</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"status"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"status_message"</span><span class="p">:</span><span class="s2">"Not subscribed"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"receiver"</span><span class="p">:</span><span class="s2">"EGAZ3SZRi6zW1D0uNYhQHg=="</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"status"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"status_message"</span><span class="p">:</span><span class="s2">"Not found"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><a name="getAccountInfo"></a></p>
+
+<h2 id="get-account-info">Get Account Info</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">get_account_info</code> request will fetch the account’s details as registered in Viber. The account admin will be able to edit most of these details from his Viber client.</p>
+
+<h3 id="resource-url-5">Resource URL</h3>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">https://chatapi.viber.com/pa/get_account_info</code></pre></figure>
+
+<h3 id="post-data-12">Post data</h3>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<h3 id="response-1">Response</h3>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"status"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"status_message"</span><span class="p">:</span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"pa:75346594275468546724"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"account name"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"uri"</span><span class="p">:</span><span class="s2">"accountUri"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"icon"</span><span class="p">:</span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"background"</span><span class="p">:</span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"category"</span><span class="p">:</span><span class="s2">"category"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"subcategory"</span><span class="p">:</span><span class="s2">"sub category"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"location"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"lon"</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"lat"</span><span class="p">:</span><span class="mf">0.2</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"country"</span><span class="p">:</span><span class="s2">"UK"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"webhook"</span><span class="p">:</span><span class="s2">"https://my.site.com"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"event_types"</span><span class="p">:[</span><span class="w">
+      </span><span class="s2">"delivered"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"seen"</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nl">"subscribers_count"</span><span class="p">:</span><span class="mi">35</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"members"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"01234567890A="</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"my name"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"avatar"</span><span class="p">:</span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"role"</span><span class="p">:</span><span class="s2">"admin"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Response parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Possible values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>status</td>
+      <td>Action result</td>
+      <td><code class="language-plaintext highlighter-rouge">0</code> for success. In case of failure – appropriate failure status number. See <a href="#errorCodes">error codes</a> table for additional information</td>
+    </tr>
+    <tr>
+      <td>status_message</td>
+      <td><code class="language-plaintext highlighter-rouge">ok</code> or failure reason</td>
+      <td>Success: <code class="language-plaintext highlighter-rouge">ok</code>. Failure: <code class="language-plaintext highlighter-rouge">invalidUrl</code>, <code class="language-plaintext highlighter-rouge">invalidAuthToken</code>, <code class="language-plaintext highlighter-rouge">badData</code>, <code class="language-plaintext highlighter-rouge">missingData</code> and <code class="language-plaintext highlighter-rouge">failure</code>. See <a href="#errorCodes">error codes</a> table for additional information</td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td>Unique numeric id of the account</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>Account name</td>
+      <td>Max 75 characters</td>
+    </tr>
+    <tr>
+      <td>uri</td>
+      <td>Unique URI of the Account</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>icon</td>
+      <td>Account icon URL</td>
+      <td>JPEG, 720x720, size no more than 512 kb</td>
+    </tr>
+    <tr>
+      <td>background</td>
+      <td>Conversation background URL</td>
+      <td>JPEG, max 1920x1920, size no more than 512 kb</td>
+    </tr>
+    <tr>
+      <td>category</td>
+      <td>Account category</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>subcategory</td>
+      <td>Account sub-category</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>location</td>
+      <td>Account location (coordinates). Will be used for finding accounts near me</td>
+      <td>lat &amp; lon coordinates</td>
+    </tr>
+    <tr>
+      <td>country</td>
+      <td>Account country</td>
+      <td>2 letters country code - ISO ALPHA-2 Code</td>
+    </tr>
+    <tr>
+      <td>webhook</td>
+      <td>Account registered webhook</td>
+      <td>webhook URL</td>
+    </tr>
+    <tr>
+      <td>event_types</td>
+      <td>Account registered events – as set by <code class="language-plaintext highlighter-rouge">set_webhook</code> request</td>
+      <td><code class="language-plaintext highlighter-rouge">delivered</code>, <code class="language-plaintext highlighter-rouge">seen</code>, <code class="language-plaintext highlighter-rouge">failed</code> and <code class="language-plaintext highlighter-rouge">conversation_started</code></td>
+    </tr>
+    <tr>
+      <td>subscribers_count</td>
+      <td>Number of subscribers</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>members</td>
+      <td>Members of the bot’s public chat</td>
+      <td><code class="language-plaintext highlighter-rouge">id</code>, <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">avatar</code>, <code class="language-plaintext highlighter-rouge">role</code> for each Public Chat member (admin/participant). Deprecated.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a name="getUserDetails"></a></p>
+
+<h2 id="get-user-details">Get User Details</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">get_user_details</code> request will fetch the details of a specific Viber user based on his unique user ID. The user ID can be obtained from the callbacks sent to the account regarding user’s actions. This request can be sent twice during a 12 hours period for each user ID.</p>
+
+<h3 id="resource-url-6">Resource URL</h3>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">https://chatapi.viber.com/pa/get_user_details</code></pre></figure>
+
+<h3 id="post-data-13">Post data</h3>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"01234567890A="</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Post parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>Unique Viber user id</td>
+      <td>required. subscribed valid user id</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-2">Response</h3>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"status"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"status_message"</span><span class="p">:</span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"message_token"</span><span class="p">:</span><span class="mi">4912661846655238145</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"user"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"01234567890A="</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"John McClane"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"avatar"</span><span class="p">:</span><span class="s2">"http://avatar.example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"country"</span><span class="p">:</span><span class="s2">"UK"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"language"</span><span class="p">:</span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"primary_device_os"</span><span class="p">:</span><span class="s2">"android 7.1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"api_version"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"viber_version"</span><span class="p">:</span><span class="s2">"6.5.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mcc"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mnc"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"device_type"</span><span class="p">:</span><span class="s2">"iPhone9,4"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Response parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Possible values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>status</td>
+      <td>Action result</td>
+      <td><code class="language-plaintext highlighter-rouge">0</code> for success. In case of failure – appropriate failure status number. See <a href="#errorCodes">error codes</a> table for additional information</td>
+    </tr>
+    <tr>
+      <td>status_message</td>
+      <td><code class="language-plaintext highlighter-rouge">ok</code> or failure reason</td>
+      <td>Success: <code class="language-plaintext highlighter-rouge">ok</code>. Failure: <code class="language-plaintext highlighter-rouge">invalidUrl</code>, <code class="language-plaintext highlighter-rouge">invalidAuthToken</code>, <code class="language-plaintext highlighter-rouge">badData</code>, <code class="language-plaintext highlighter-rouge">receiverNoSuitableDevice</code>, <code class="language-plaintext highlighter-rouge">missingData</code> and <code class="language-plaintext highlighter-rouge">failure</code>. See <a href="#errorCodes">error codes</a> table for additional information</td>
+    </tr>
+    <tr>
+      <td>message_token</td>
+      <td>Unique id of the message</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user.id</td>
+      <td>Unique Viber user id</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user.name</td>
+      <td>User’s Viber name</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user.avatar</td>
+      <td>URL of the user’s avatar</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user.country</td>
+      <td>User’s country code</td>
+      <td>2 letters country code - ISO ALPHA-2 Code</td>
+    </tr>
+    <tr>
+      <td>user.language</td>
+      <td>User’s phone language. Will be returned according to the device language</td>
+      <td>ISO 639-1</td>
+    </tr>
+    <tr>
+      <td>user.primary_device_os</td>
+      <td>The operating system type and version of the user’s primary device.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user.api_version</td>
+      <td>Max API version, matching the most updated user’s device</td>
+      <td>Currently only 1. Additional versions will be added in the future</td>
+    </tr>
+    <tr>
+      <td>user.viber_version</td>
+      <td>The Viber version installed on the user’s primary device</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user.mcc</td>
+      <td>Mobile country code</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user.mnc</td>
+      <td>Mobile network code</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user.device_type</td>
+      <td>The user’s device type</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a name="getOnline"></a></p>
+
+<h2 id="get-online">Get Online</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">get_online</code> request will fetch the online status of a given subscribed account members. The API supports up to 100 user id per request and those users must be subscribed to the account.</p>
+
+<h3 id="resource-url-7">Resource URL</h3>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">https://chatapi.viber.com/pa/get_online</code></pre></figure>
+
+<h3 id="post-data-14">Post data</h3>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"ids"</span><span class="p">:[</span><span class="w">
+      </span><span class="s2">"01234567890="</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"01234567891="</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"01234567893="</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Post parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ids</td>
+      <td>Unique Viber user id</td>
+      <td>required. 100 ids per request</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-3">Response</h3>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"status"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"status_message"</span><span class="p">:</span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"users"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"01234567890="</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"online_status"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"online_status_message"</span><span class="p">:</span><span class="s2">"online"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"01234567891="</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"online_status"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"online_status_message"</span><span class="p">:</span><span class="s2">"offline"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"last_online"</span><span class="p">:</span><span class="mi">1457764197627</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"01234567893="</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"online_status"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"online_status_message"</span><span class="p">:</span><span class="s2">"tryLater"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Response parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Possible values</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>status</td>
+      <td>Action result</td>
+      <td><code class="language-plaintext highlighter-rouge">0</code> for success. In case of failure – appropriate failure status number. See <a href="#errorCodes">error codes</a> table for additional information</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>status_message</td>
+      <td><code class="language-plaintext highlighter-rouge">ok</code> or failure reason</td>
+      <td>Success: <code class="language-plaintext highlighter-rouge">ok</code>. Failure: <code class="language-plaintext highlighter-rouge">invalidUrl</code>, <code class="language-plaintext highlighter-rouge">invalidAuthToken</code>, <code class="language-plaintext highlighter-rouge">badData</code>, <code class="language-plaintext highlighter-rouge">missingData</code> and <code class="language-plaintext highlighter-rouge">failure</code>. See <a href="#errorCodes">error codes</a> table for additional information</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user[x].id</td>
+      <td>Unique Viber user id</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user[x].online_status</td>
+      <td>Online status code</td>
+      <td><code class="language-plaintext highlighter-rouge">0</code> for online, <code class="language-plaintext highlighter-rouge">1</code> for offline, <code class="language-plaintext highlighter-rouge">2</code> for undisclosed - user set Viber to hide status, <code class="language-plaintext highlighter-rouge">3</code> for try later - internal error, <code class="language-plaintext highlighter-rouge">4</code> for unavailable - not a Viber user / unsubscribed / unregistered</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user[x]. online_status_message</td>
+      <td>Online status message</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a name="callbacks"></a></p>
+
+<h2 id="callbacks">Callbacks</h2>
+
+<p>Each callback will contain a signature on the JSON passed to the callback. The signature is HMAC with SHA256 that will use the authentication token as the key and the JSON as the value. The result will be passed as HTTP Header <code class="language-plaintext highlighter-rouge">X-Viber-Content-Signature</code> so the receiver can determine the origin of the message.</p>
+
+<h3 id="re-try-logic">Re-try logic</h3>
+
+<p>In case the webhook is offline Viber will re-try to deliver the callback until HTTP status code <code class="language-plaintext highlighter-rouge">200</code> is received. There will be a retry attempt after 5 seconds, and then another after 1 minute and 5 seconds.</p>
+
+<h3 id="input">Input</h3>
+
+<p>Key (your bot’s authentication token):</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">4453b6ac12345678-e02c5f12174805f9-daec9cbb5448c51f</code></pre></figure>
+
+<p>Value:</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"event"</span><span class="p">:</span><span class="s2">"delivered"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="mi">1457764197627</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"message_token"</span><span class="p">:</span><span class="mi">491266184665523145</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"user_id"</span><span class="p">:</span><span class="s2">"01234567890A="</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<h3 id="output">Output</h3>
+<p><strong>HTTP header</strong></p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">X-Viber-Content-Signature: 9d3941b33d45c165400d84dba9328ee0b687a5a18b347617091be0a56d  </code></pre></figure>
+
+<p><a name="subscribedCallback"></a></p>
+
+<h3 id="subscribed">Subscribed</h3>
+
+<p>Before an account can send messages to a user, the user will need to subscribe to the account. Subscribing can take place if the user sends a message to the bot - when a user sends its first message to a bot the user will be automatically subscribed to the bot. Sending the first message will not trigger a subscribe callback, only a message callback (see <a href="#receiveMessageFromUser">receive message from user</a> section).</p>
+
+<p>You will receive a subscribed event when unsubscribed users do the following:</p>
+<ol>
+  <li>Open conversation with the bot.</li>
+  <li>Tap on the 3-dots button in the top right and then on “Chat Info”.</li>
+  <li>Tap on “Receive messages”.</li>
+</ol>
+
+<p><strong>Note:</strong> A subscribe event will delete any <code class="language-plaintext highlighter-rouge">context</code> or <code class="language-plaintext highlighter-rouge">tracking_data</code> information related to the conversation. This means that if a user had a conversation with a service and then chose to unsubscribe and subscribe again,
+a new conversation will be started without any information related to the old conversation.</p>
+
+<h4 id="callback-data-1">Callback data</h4>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"event"</span><span class="p">:</span><span class="s2">"subscribed"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="mi">1457764197627</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"user"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"01234567890A="</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"John McClane"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"avatar"</span><span class="p">:</span><span class="s2">"http://avatar.example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"country"</span><span class="p">:</span><span class="s2">"UK"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"language"</span><span class="p">:</span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"api_version"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"message_token"</span><span class="p">:</span><span class="mi">4912661846655238145</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Callback parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Possible values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>event</td>
+      <td>Callback type - which event triggered the callback</td>
+      <td>subscribed</td>
+    </tr>
+    <tr>
+      <td>timestamp</td>
+      <td>Time of the event that triggered the callback</td>
+      <td>Epoch time</td>
+    </tr>
+    <tr>
+      <td>user.id</td>
+      <td>Unique Viber user id</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user.name</td>
+      <td>User’s Viber name</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user.avatar</td>
+      <td>URL of user’s avatar</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user.country</td>
+      <td>User’s 2 letter country code</td>
+      <td>ISO ALPHA-2 Code</td>
+    </tr>
+    <tr>
+      <td>user.language</td>
+      <td>User’s phone language. Will be returned according to the device language</td>
+      <td>ISO 639-1</td>
+    </tr>
+    <tr>
+      <td>user.api_version</td>
+      <td>The maximal Viber version that is supported by all of the user’s devices</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>message_token</td>
+      <td>Unique ID of the message</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>chat_hostname</td>
+      <td>Internal use</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="unsubscribed">Unsubscribed</h3>
+
+<p>The user will have the option to unsubscribe from the PA. This will trigger an unsubscribed callback.</p>
+
+<h4 id="callback-data-2">Callback data</h4>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"event"</span><span class="p">:</span><span class="s2">"unsubscribed"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="mi">1457764197627</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"user_id"</span><span class="p">:</span><span class="s2">"01234567890A="</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"message_token"</span><span class="p">:</span><span class="mi">4912661846655238145</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Callback parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Possible values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>event</td>
+      <td>Callback type - which event triggered the callback</td>
+      <td>unsubscribed</td>
+    </tr>
+    <tr>
+      <td>timestamp</td>
+      <td>Time of the event that triggered the callback</td>
+      <td>Epoch time</td>
+    </tr>
+    <tr>
+      <td>user_id</td>
+      <td>Unique Viber user id</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>message_token</td>
+      <td>Unique ID of the message</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a name="ConversationStarted"></a></p>
+
+<h3 id="conversation-started">Conversation started</h3>
+
+<p>Conversation started event fires when a user opens a conversation with the bot using the “message” button (found on the account’s info screen) or using a <a href="https://developers.viber.com/docs/tools/deep-links">deep link</a>.</p>
+
+<p>This event is <strong>not</strong> considered a subscribe event and doesn’t allow the account to send messages to the user; however, it will allow sending one “welcome message” to the user. See <a href="#SendingWelcomeMessage">sending a welcome message</a> below for more information.</p>
+
+<p>Once a <code class="language-plaintext highlighter-rouge">conversation_started</code> callback is received, the service will be able to respond with a JSON containing same parameters as a <code class="language-plaintext highlighter-rouge">send_message</code> request. The <code class="language-plaintext highlighter-rouge">receiver</code> parameter is <strong>not</strong> mandatory in this case.</p>
+
+<p>Note: the <code class="language-plaintext highlighter-rouge">conversation_started</code> callback doesn’t contain the <code class="language-plaintext highlighter-rouge">context</code> parameter by default.</p>
+
+<p>To add this paramater and determine its value, you can use a deeplink like this:
+<code class="language-plaintext highlighter-rouge">viber://pa?chatURI=your_bot_URI&amp;context=your_context</code></p>
+
+<h4 id="callback-data-3">Callback data</h4>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"event"</span><span class="p">:</span><span class="s2">"conversation_started"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="mi">1457764197627</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"message_token"</span><span class="p">:</span><span class="mi">4912661846655238145</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"open"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"context"</span><span class="p">:</span><span class="s2">"context information"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"user"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"01234567890A="</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"John McClane"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"avatar"</span><span class="p">:</span><span class="s2">"http://avatar.example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"country"</span><span class="p">:</span><span class="s2">"UK"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"language"</span><span class="p">:</span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"api_version"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"subscribed"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Callback parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Possible values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>event</td>
+      <td>Callback type - which event triggered the callback</td>
+      <td><code class="language-plaintext highlighter-rouge">conversation_started</code></td>
+    </tr>
+    <tr>
+      <td>timestamp</td>
+      <td>Time of the event that triggered the callback</td>
+      <td>Epoch time</td>
+    </tr>
+    <tr>
+      <td>message_token</td>
+      <td>Unique ID of the message</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>The specific type of <code class="language-plaintext highlighter-rouge">conversation_started</code> event</td>
+      <td><code class="language-plaintext highlighter-rouge">open</code>. Additional types may be added in the future</td>
+    </tr>
+    <tr>
+      <td>context</td>
+      <td>Any additional parameters added to the deep link used to access the conversation passed as a string. See <a href="https://developers.viber.com/docs/tools/deep-links">deep link</a> section for additional information</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user.id</td>
+      <td>Unique Viber user id</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user.name</td>
+      <td>User’s Viber name</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user.avatar</td>
+      <td>URL of user’s avatar</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user.country</td>
+      <td>User’s 2 letter country code</td>
+      <td>ISO ALPHA-2 Code</td>
+    </tr>
+    <tr>
+      <td>user.language</td>
+      <td>User’s phone language</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user.api_version</td>
+      <td>Max API version, matching the most updated user’s device</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>subscribed</td>
+      <td>indicated whether a user is already subscribed</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code> if subscribed and <code class="language-plaintext highlighter-rouge">false</code> otherwise</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a name="SendingWelcomeMessage"></a></p>
+
+<h3 id="sending-a-welcome-message">Sending a welcome message</h3>
+
+<p>The Viber API allows sending messages to users only after they subscribe to the account. However, Viber will allow the account to send one “welcome message” to a user as the user opens the conversation, before the user subscribes.</p>
+
+<p>The welcome message will be sent as a response to a <code class="language-plaintext highlighter-rouge">conversation_started</code> callback, which will be received from Viber once the user opens the conversation with the account. To learn more about this event and when is it triggered see <a href="#ConversationStarted"><code class="language-plaintext highlighter-rouge">Conversation started</code></a> in the callbacks section.</p>
+
+<h4 id="welcome-message-flow">Welcome message flow</h4>
+<p>Sending a welcome message will be done according to the following flow:</p>
+
+<ol>
+  <li>User opens 1-on-1 conversation with account.</li>
+  <li>Viber server sends a <code class="language-plaintext highlighter-rouge">conversation_started</code> callback to bot’s webhook.</li>
+  <li>The account receives the <code class="language-plaintext highlighter-rouge">conversation_started</code> callback and responds with an HTTP response which includes the welcome message as the response body.</li>
+</ol>
+
+<p>The welcome message will be a JSON constructed according to the <code class="language-plaintext highlighter-rouge">send_message</code> requests structure, but without the <code class="language-plaintext highlighter-rouge">receiver</code> parameter. An example welcome message would look like this:</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"sender"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"John McClane"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"avatar"</span><span class="p">:</span><span class="s2">"http://avatar.example.com"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"tracking_data"</span><span class="p">:</span><span class="s2">"tracking data"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"picture"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"text"</span><span class="p">:</span><span class="s2">"Welcome to our bot!"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"media"</span><span class="p">:</span><span class="s2">"http://www.images.com/img.jpg"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"thumbnail"</span><span class="p">:</span><span class="s2">"http://www.images.com/thumb.jpg"</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Note:</strong> The welcome message should be sent as the body of the HTTP response to the <code class="language-plaintext highlighter-rouge">conversation_started</code> callback, and not to the <code class="language-plaintext highlighter-rouge">send_message</code> endpoint.</p>
+
+<h3 id="message-receipts-callbacks">Message receipts callbacks</h3>
+
+<p>Viber offers message status updates for each message sent, allowing the account to be notified when the message was delivered to the user’s device (<code class="language-plaintext highlighter-rouge">delivered status</code>) and when the conversation containing the message was opened (<code class="language-plaintext highlighter-rouge">seen status</code>).</p>
+
+<p>The seen callback will only be sent once when the user reads the unread messages, regardless of the number of messages sent to them, or the number of devices they are using.</p>
+
+<p>If the message recipient is using their Viber account on multiple devices, each of the devices will return a delivered, meaning that several delivered callbacks can be received for a single message.</p>
+
+<p>If Viber is unable to deliver the message to the client it will try to deliver it for up to 14 days. If the message wasn’t delivered within the 14 days it will not be delivered and no “delivered” or “seen” callbacks will be received for it.</p>
+
+<h4 id="callback-data-4">Callback data</h4>
+
+<h5 id="delivered">Delivered</h5>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"event"</span><span class="p">:</span><span class="s2">"delivered"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="mi">1457764197627</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"message_token"</span><span class="p">:</span><span class="mi">4912661846655238145</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"user_id"</span><span class="p">:</span><span class="s2">"01234567890A="</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<h5 id="seen">Seen</h5>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"event"</span><span class="p">:</span><span class="s2">"seen"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="mi">1457764197627</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"message_token"</span><span class="p">:</span><span class="mi">4912661846655238145</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"user_id"</span><span class="p">:</span><span class="s2">"01234567890A="</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Callback parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Possible values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>event</td>
+      <td>Callback type - which event triggered the callback</td>
+      <td><code class="language-plaintext highlighter-rouge">delivered</code>, <code class="language-plaintext highlighter-rouge">seen</code></td>
+    </tr>
+    <tr>
+      <td>timestamp</td>
+      <td>Time of the event that triggered the callback</td>
+      <td>Epoch time</td>
+    </tr>
+    <tr>
+      <td>message_token</td>
+      <td>Unique ID of the message</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user_id</td>
+      <td>Unique Viber user id</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="failed-callback">Failed callback</h3>
+<p>The “failed” callback will be triggered if a message has reached the client but failed any of the client validations.</p>
+
+<p>Since some of the message validations take place on the server while the others take place on the client, some messages may only fail after reaching the client. In such cases the flow will be as follows:</p>
+
+<ol>
+  <li>Message is sent.</li>
+  <li>Response with status 0 is received to indicate a successful request.</li>
+  <li>The message reaches the client and fails client validation.</li>
+  <li>“Failed” callback is sent to the webhook, containing the unique message token and a string explaining the failure.</li>
+</ol>
+
+<p>Such message will not be displayed to the receiver and no “delivered” or “seen” callbacks will be returned for it.</p>
+
+<h4 id="callback-data-5">Callback data</h4>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"event"</span><span class="p">:</span><span class="s2">"failed"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="mi">1457764197627</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"message_token"</span><span class="p">:</span><span class="mi">4912661846655238145</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"user_id"</span><span class="p">:</span><span class="s2">"01234567890A="</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"desc"</span><span class="p">:</span><span class="s2">"failure description"</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Callback parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Possible values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>event</td>
+      <td>Callback type - which event triggered the callback</td>
+      <td><code class="language-plaintext highlighter-rouge">failed</code></td>
+    </tr>
+    <tr>
+      <td>timestamp</td>
+      <td>Time of the event that triggered the callback</td>
+      <td>Epoch time</td>
+    </tr>
+    <tr>
+      <td>message_token</td>
+      <td>Unique ID of the message</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>user_id</td>
+      <td>Unique Viber user id</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>desc</td>
+      <td>A string describing the failure</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a name="receiveMessageFromUser"></a></p>
+
+<h3 id="receive-message-from-user">Receive message from user</h3>
+
+<p>The Chat API allows the user to send messages to the PA. Excluding <code class="language-plaintext highlighter-rouge">file</code> type, all message types are supported for sending from bot to user and from user to bot. These include: <code class="language-plaintext highlighter-rouge">text</code>, <code class="language-plaintext highlighter-rouge">picture</code>, <code class="language-plaintext highlighter-rouge">video</code>, <code class="language-plaintext highlighter-rouge">contact</code>, <code class="language-plaintext highlighter-rouge">URL</code> and <code class="language-plaintext highlighter-rouge">location</code>. The following callback data describes the structure of messages sent from user to PA.</p>
+
+<h4 id="callback-data-6">Callback data</h4>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+   </span><span class="nl">"event"</span><span class="p">:</span><span class="s2">"message"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="mi">1457764197627</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"message_token"</span><span class="p">:</span><span class="mi">4912661846655238145</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"sender"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"01234567890A="</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"John McClane"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"avatar"</span><span class="p">:</span><span class="s2">"http://avatar.example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"country"</span><span class="p">:</span><span class="s2">"UK"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"language"</span><span class="p">:</span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"api_version"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"message"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"text"</span><span class="p">:</span><span class="s2">"a message to the service"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"media"</span><span class="p">:</span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"location"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"lat"</span><span class="p">:</span><span class="mf">50.76891</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"lon"</span><span class="p">:</span><span class="mf">6.11499</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"tracking_data"</span><span class="p">:</span><span class="s2">"tracking data"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p><strong>Callback general parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Possible values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>event</td>
+      <td>Callback type - which event triggered the callback</td>
+      <td><code class="language-plaintext highlighter-rouge">message</code></td>
+    </tr>
+    <tr>
+      <td>timestamp</td>
+      <td>Time of the event that triggered the callback</td>
+      <td>Epoch time</td>
+    </tr>
+    <tr>
+      <td>message_token</td>
+      <td>Unique ID of the message</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>sender.id</td>
+      <td>Unique Viber user id of the message sender</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>sender.name</td>
+      <td>Sender’s Viber name</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>sender.avatar</td>
+      <td>Sender’s avatar URL</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>sender.country</td>
+      <td>Sender’s 2 letter country code</td>
+      <td>ISO ALPHA-2 Code</td>
+    </tr>
+    <tr>
+      <td>sender.language</td>
+      <td>Sender’s phone language. Will be returned according to the device language</td>
+      <td>ISO 639-1</td>
+    </tr>
+    <tr>
+      <td>sender.api_version</td>
+      <td>The maximal Viber version that is supported by all of the user’s devices</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>message</td>
+      <td>Detailed in the chart below</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Callback message parameters</strong></p>
+
+<p>The callback message parameters depend on the type of message. For each message type, only the relevant parameters will be received.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Possible values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>type</td>
+      <td>Message type</td>
+      <td><code class="language-plaintext highlighter-rouge">text</code>, <code class="language-plaintext highlighter-rouge">picture</code>, <code class="language-plaintext highlighter-rouge">video</code>, <code class="language-plaintext highlighter-rouge">file</code>, <code class="language-plaintext highlighter-rouge">sticker</code>, <code class="language-plaintext highlighter-rouge">contact</code>, <code class="language-plaintext highlighter-rouge">url</code> and <code class="language-plaintext highlighter-rouge">location</code></td>
+    </tr>
+    <tr>
+      <td>text</td>
+      <td>The message text</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>media</td>
+      <td>URL of the message media - can be <code class="language-plaintext highlighter-rouge">image</code>, <code class="language-plaintext highlighter-rouge">video</code>, <code class="language-plaintext highlighter-rouge">file</code> and <code class="language-plaintext highlighter-rouge">url</code>. Image/Video/File URLs will have a TTL of 1 hour</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>location</td>
+      <td>Location coordinates</td>
+      <td>lat &amp; lon within valid ranges</td>
+    </tr>
+    <tr>
+      <td>contact</td>
+      <td><code class="language-plaintext highlighter-rouge">name</code> - contact’s username, <code class="language-plaintext highlighter-rouge">phone_number</code> - contact’s phone number and <code class="language-plaintext highlighter-rouge">avatar</code> as the avatar URL</td>
+      <td><code class="language-plaintext highlighter-rouge">name</code> - max 128 characters. Only one <code class="language-plaintext highlighter-rouge">phone_number</code> per contact can be sent</td>
+    </tr>
+    <tr>
+      <td>tracking_data</td>
+      <td>Tracking data sent with the last message to the user</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>file_name</td>
+      <td>File name</td>
+      <td>Relevant for <code class="language-plaintext highlighter-rouge">file</code> type messages</td>
+    </tr>
+    <tr>
+      <td>file_size</td>
+      <td>File size in bytes</td>
+      <td>Relevant for <code class="language-plaintext highlighter-rouge">file</code> type messages</td>
+    </tr>
+    <tr>
+      <td>duration</td>
+      <td>Video length in seconds</td>
+      <td>Relevant for <code class="language-plaintext highlighter-rouge">video</code> type messages</td>
+    </tr>
+    <tr>
+      <td>sticker_id</td>
+      <td>Viber sticker id</td>
+      <td>Relevant for <code class="language-plaintext highlighter-rouge">sticker</code> type messages</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Message status</strong></p>
+
+<p>Once a <code class="language-plaintext highlighter-rouge">200</code> OK response is received from the PA, the message status will change to <code class="language-plaintext highlighter-rouge">delivered</code> on the user’s side. “Seen” status is not currently supported for messages sent from user to PA.</p>
+
+<p><a name="errorCodes"></a></p>
+
+<h2 id="error-codes">Error Codes</h2>
+
+<p>The following error codes will be returned with API responses. The <code class="language-plaintext highlighter-rouge">status</code> parameter will include the error code value while the <code class="language-plaintext highlighter-rouge">status_message</code> parameter will include the error name or a more specific string describing the error.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">0</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ok</code></td>
+      <td>Success</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">invalidUrl</code></td>
+      <td>The webhook URL is not valid</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">invalidAuthToken</code></td>
+      <td>The authentication token is not valid</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">3</code></td>
+      <td><code class="language-plaintext highlighter-rouge">badData</code></td>
+      <td>There is an error in the request itself (missing comma, brackets, etc.)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">missingData</code></td>
+      <td>Some mandatory data is missing</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">5</code></td>
+      <td><code class="language-plaintext highlighter-rouge">receiverNotRegistered</code></td>
+      <td>The receiver is not registered to Viber</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">6</code></td>
+      <td><code class="language-plaintext highlighter-rouge">receiverNotSubscribed</code></td>
+      <td>The receiver is not subscribed to the account</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">7</code></td>
+      <td><code class="language-plaintext highlighter-rouge">publicAccountBlocked</code></td>
+      <td>The account is blocked</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">8</code></td>
+      <td><code class="language-plaintext highlighter-rouge">publicAccountNotFound</code></td>
+      <td>The account associated with the token is not a account.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">9</code></td>
+      <td><code class="language-plaintext highlighter-rouge">publicAccountSuspended</code></td>
+      <td>The account is suspended</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">10</code></td>
+      <td><code class="language-plaintext highlighter-rouge">webhookNotSet</code></td>
+      <td>No webhook was set for the account</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">11</code></td>
+      <td><code class="language-plaintext highlighter-rouge">receiverNoSuitableDevice</code></td>
+      <td>The receiver is using a device or a Viber version that don’t support accounts</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">12</code></td>
+      <td><code class="language-plaintext highlighter-rouge">tooManyRequests</code></td>
+      <td>Rate control breach</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">13</code></td>
+      <td><code class="language-plaintext highlighter-rouge">apiVersionNotSupported</code></td>
+      <td>Maximum supported account version by all user’s devices is less than the <code class="language-plaintext highlighter-rouge">minApiVersion</code> in the message</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">14</code></td>
+      <td><code class="language-plaintext highlighter-rouge">incompatibleWithVersion</code></td>
+      <td><code class="language-plaintext highlighter-rouge">minApiVersion</code> is not compatible to the message fields</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">15</code></td>
+      <td><code class="language-plaintext highlighter-rouge">publicAccountNotAuthorized</code></td>
+      <td>The account is not authorized</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">16</code></td>
+      <td><code class="language-plaintext highlighter-rouge">inchatReplyMessageNotAllowed</code></td>
+      <td>Inline message not allowed</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">17</code></td>
+      <td><code class="language-plaintext highlighter-rouge">publicAccountIsNotInline</code></td>
+      <td>The account is not inline</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">18</code></td>
+      <td><code class="language-plaintext highlighter-rouge">noPublicChat</code></td>
+      <td>Failed to <code class="language-plaintext highlighter-rouge">post to public account</code>. The bot is missing a Public Chat interface</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">19</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cannotSendBroadcast</code></td>
+      <td>Cannot send broadcast message</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">20</code></td>
+      <td><code class="language-plaintext highlighter-rouge">broadcastNotAllowed</code></td>
+      <td>Attempt to send broadcast message from the bot</td>
+    </tr>
+    <tr>
+      <td>other</td>
+      <td><code class="language-plaintext highlighter-rouge">General error</code></td>
+      <td>General error</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> Failing to send the authentication token in the header will result in an error with the <code class="language-plaintext highlighter-rouge">missing auth_token</code> message.</p>
+
+<p><a name="forbiddenFileFormats"></a></p>
+
+<h2 id="forbidden-file-formats">Forbidden File Formats</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Extension</th>
+      <th>Format</th>
+      <th>Operating system(s)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ACTION</td>
+      <td>Automator Action</td>
+      <td>Mac OS</td>
+    </tr>
+    <tr>
+      <td>APK</td>
+      <td>Application</td>
+      <td>Android</td>
+    </tr>
+    <tr>
+      <td>APP</td>
+      <td>Executable</td>
+      <td>Mac OS</td>
+    </tr>
+    <tr>
+      <td>BAT</td>
+      <td>Batch File</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>BIN</td>
+      <td>Binary Executable</td>
+      <td>Windows, Mac OS, Linux</td>
+    </tr>
+    <tr>
+      <td>CMD</td>
+      <td>Command Script</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>COM</td>
+      <td>Command File</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>COMMAND</td>
+      <td>Terminal Command</td>
+      <td>Mac OS</td>
+    </tr>
+    <tr>
+      <td>CPL</td>
+      <td>Control Panel Extension</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>CSH</td>
+      <td>C Shell Script</td>
+      <td>Mac OS, Linux</td>
+    </tr>
+    <tr>
+      <td>EXE</td>
+      <td>Executable</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>GADGET</td>
+      <td>Windows Gadget</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>INF1</td>
+      <td>Setup Information File</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>INS</td>
+      <td>Internet Communication Settings</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>INX</td>
+      <td>InstallShield Compiled Script</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>IPA</td>
+      <td>Application</td>
+      <td>iOS</td>
+    </tr>
+    <tr>
+      <td>ISU</td>
+      <td>InstallShield Uninstaller Script</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>JOB</td>
+      <td>Windows Task Scheduler Job File</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>JSE</td>
+      <td>JScript Encoded File</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>KSH</td>
+      <td>Unix Korn Shell Script</td>
+      <td>Linux</td>
+    </tr>
+    <tr>
+      <td>LNK</td>
+      <td>File Shortcut</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>MSC</td>
+      <td>Microsoft Common Console Document</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>MSI</td>
+      <td>Windows Installer Package</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>MSP</td>
+      <td>Windows Installer Patch</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>MST</td>
+      <td>Windows Installer Setup Transform File</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>OSX</td>
+      <td>Executable</td>
+      <td>Mac OS</td>
+    </tr>
+    <tr>
+      <td>OUT</td>
+      <td>Executable</td>
+      <td>Linux</td>
+    </tr>
+    <tr>
+      <td>PAF</td>
+      <td>Portable Application Installer File</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>PIF</td>
+      <td>Program Information File</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>PRG</td>
+      <td>Executable</td>
+      <td>GEM</td>
+    </tr>
+    <tr>
+      <td>PS1</td>
+      <td>Windows PowerShell Cmdlet</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>REG</td>
+      <td>Registry Data File</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>RGS</td>
+      <td>Registry Script</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>RUN</td>
+      <td>Executable</td>
+      <td>Linux</td>
+    </tr>
+    <tr>
+      <td>SCT</td>
+      <td>Windows Scriptlet</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>SHB</td>
+      <td>Windows Document Shortcut</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>SHS</td>
+      <td>Shell Scrap Object</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>U3P</td>
+      <td>U3 Smart Application</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>VB</td>
+      <td>VBScript File</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>VBE</td>
+      <td>VBScript Encoded Script</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>VBS</td>
+      <td>VBScript File</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>VBSCRIPT</td>
+      <td>Visual Basic Script</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>WORKFLOW</td>
+      <td>Automator Workflow</td>
+      <td>Mac OS</td>
+    </tr>
+    <tr>
+      <td>WS</td>
+      <td>Windows Script</td>
+      <td>Windows</td>
+    </tr>
+    <tr>
+      <td>WSF</td>
+      <td>Windows Script</td>
+      <td>Windows</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    <script src="/js/scrollnav.min.umd.js"></script>
+<script>
+const content = document.querySelector('.page-section .container-narrow');
+
+scrollnav.init(content, {
+  debug: false,
+  subSections:'h3'
+});
+</script>
+  </div>
+</section>
+
+
+    <footer id="footer" class="footer">
+  <div id="mc_embed_signup" class="container-narrow text-center">
+    <form action="//viber.us14.list-manage.com/subscribe/post?u=b5b41d562cbdd6f2d8d5f07e8&amp;id=ca0dedc6fb" method="post" id="mc-embedded-subscribe-form"
+      name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+        <h2 class="col-sm-12">Subscribe to our mailing list</h2>
+        <div class="col-sm-9">
+          <div class="mc-field-group">
+            <input type="email" placeholder="email@address.com" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+            <div id="mce-responses">
+              <h5 class="response" id="mce-error-response" style="display:none"></h5>
+              <h5 class="response" id="mce-success-response" style="display:none"></h5>
+            </div>
+          </div>
+          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        </div>
+        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_b5b41d562cbdd6f2d8d5f07e8_ca0dedc6fb" tabindex="-1" value=""></div>
+        <div class="col-sm-3"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" disabled class="button"></div>
+
+        <h6 class="col-sm-12 terms">By clicking "Subscribe" you agree to allow Viber to send you emails. You will be able to unsubscribe at any time by clicking Unsubscribe in the email messages.
+        </h6>
+      </div>
+    </form>
+  </div>
+
+  <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js' />
+  <script type='text/javascript'>
+    (function ($) {
+      window.fnames = new Array();
+      window.ftypes = new Array();
+      fnames[0] = 'EMAIL';
+      ftypes[0] = 'email';
+      fnames[1] = 'FNAME';
+      ftypes[1] = 'text';
+      fnames[2] = 'LNAME';
+      ftypes[2] = 'text';
+    }(jQuery));
+    var $mcj = jQuery.noConflict(true);
+  </script>
+  <script type='text/javascript'>
+      jQuery(document).ready(function ($) {
+        $('#mce-EMAIL').focus(function () {
+          $('#mc-embedded-subscribe').removeAttr('disabled');
+        });
+      });
+  </script>
+
+  <div class="container-narrow text-center mt-4">
+    <nav>
+      <a class="footer-nav-item" href="/">Home</a>
+      <a class="footer-nav-item" href="/docs/">Docs</a>
+      <a class="footer-nav-item" href="/releases/">Releases</a>
+      <a class="footer-nav-item" href="/contact/">Contact</a>
+      <a class="footer-nav-item" href="//www.viber.com/en/about" target="_blank">About</a>
+      <a class="footer-nav-item" href="//www.viber.com/en/terms" target="_blank">Terms &amp; Policies</a>
+    </nav>
+
+    <div class="text-center">
+      <span class="copyright">© 2018 Viber Media S.à r.l.</span>
+      <span class="footer-love pl-4">
+        <a href='https://viber.com' target="_blank" class="no-underline"><span class='octicon octicon-code'></span> with <span class='octicon octicon-heart'></span> by Viber</span></a>
+      </span>
+    </div>
+  </div>
+
+</footer>
+<script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+
+    <script>
+  var anchorForId = function (id) {
+    var anchor = document.createElement("a");
+    anchor.className = "header-link";
+    anchor.href      = "#" + id;
+    anchor.innerHTML = "<span class='octicon octicon-link'></span>";
+    anchor.title = "Permalink";
+    return anchor;
+  };
+
+  var linkifyAnchors = function (level, containingElement) {
+    var headers = containingElement.getElementsByTagName("h" + level);
+    for (var h = 0; h < headers.length; h++) {
+      var header = headers[h];
+
+      if (typeof header.id !== "undefined" && header.id !== "") {
+        header.appendChild(anchorForId(header.id));
+      }
+    }
+  };
+
+  document.onreadystatechange = function () {
+    if (this.readyState === "complete") {
+      var contentBlock = document.getElementsByClassName("docs")[0] || document.getElementsByClassName("news")[0];
+      if (!contentBlock) {
+        return;
+      }
+      for (var level = 1; level <= 6; level++) {
+        linkifyAnchors(level, contentBlock);
+      }
+    }
+  };
+</script>
+
+  </body>
+
+</html>
