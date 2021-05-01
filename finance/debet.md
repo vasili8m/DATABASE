@@ -4,19 +4,18 @@
 
 ***
 
-- [Закажи Альфа-карту](https://bit-ly.ru/0LIPT) - и получи выгодные условия!
+[Закажи Альфа-карту](https://bit-ly.ru/0LIPT) - и получи выгодные условия
+- Бесплатное обслуживание;
+- Кэшбэк до 2% на всё;
+- До 5% на остаток;
+- Снятие наличных без комиссии в любых банкоматах.
 
-          - Бесплатное обслуживание;
-          - Кэшбэк до 2% на всё;
-          - До 5% на остаток;
-          - Снятие наличных без комиссии в любых банкоматах.
 
-
-          <p align="center">
-            <img src="https://tlgur.com/d/8DmXK07G" />
-            <img src="https://tlgur.com/d/Gayo19aG" />
-            <img src="https://tlgur.com/d/8no01WpG" />
-          </p>
+<p align="center">
+<img src="https://tlgur.com/d/8DmXK07G" />
+<img src="https://tlgur.com/d/Gayo19aG" />
+<img src="https://tlgur.com/d/8no01WpG" />
+</p>
 
 
 
